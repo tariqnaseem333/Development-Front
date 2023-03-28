@@ -1,0 +1,54 @@
+Page - 2: 
+To do:
+
+Create two files namely, stacking.html and stacking.css
+Add the below given code in the stacking.html file
+<!-- Add stylings for the div tags to achieve the stacking priority and hover effects -->
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Stacking</title> 
+    <link  rel="stylesheet"  href="./stacking.css"> 
+</head> 
+<body> 
+<div style="display: flex; margin: 100px;"> 
+  <div> 
+    Hyper Text Markup Language 
+  </div> 
+  <div>
+    Cascading Style Sheets 
+  </div> 
+  <div> 
+    Bootstrap 
+  </div> 
+  <div>
+    JavaScript 
+  </div> 
+</div>
+</body>
+</html>
+
+Add the below given code in stacking.css file
+
+.card{
+  margin: -10px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: white;
+  height: 200px;
+  width: 100px;
+  border: 1px grey solid;
+  text-align: center;
+  border-radius: 10px;
+  background-image: radial-gradient(grey,black);
+  position: relative;
+  padding: 20px;
+  font-size: 20px;
+}
+.card:hover{
+  border: 2px grey solid;
+  box-shadow: 0px 5px 15px 10px grey;
+  transform: scale(1.2);
+  transition: ease 1s;
+  z-index: 50;
+}

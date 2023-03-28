@@ -1,3 +1,20 @@
+Problem Statement:
+Create an html page to learn the usage of image tag(img)
+Steps to follow:
+Copy given code-snippet in VS Code IDE.
+
+Provide the URL of any image (eg: C:\Users\Pictures\image.jpg), present in your system as value for the src attribute.
+
+In case of incorrect URL of the image, an alternate text needs to be displayed describing the image.
+
+Save your file as imageDemo.html and run it in any browser using a Live Server.
+
+Once the above instructions are implemented, use the image as a link to access the below link:
+
+"https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/The_Earth_seen_from_Apollo_17.jpg/220px-The_Earth_seen_from_Apollo_17.jpg"
+
+ 
+
 <!DOCTYPE html>
 <html>
 <head>

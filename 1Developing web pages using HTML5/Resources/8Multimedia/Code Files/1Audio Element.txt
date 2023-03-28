@@ -1,0 +1,11 @@
+Page - 1: 
+Code-snippets:
+
+Playing audio file in loop
+<audio src="myAudio.mp3" controls="controls" loop>Your browser does not support the audio tag</audio>
+Autoplaying audio file
+<audio src="myAudio.mp3" controls="controls" autoplay>Your browser does not support the audio tag</audio>
+Preloading metadata of the audio file
+<audio src="myAudio.mp3" controls="controls" preload="metadata">Your browser does not support the audio tag</audio>
+Mutes audio file
+<audio src="myAudio.mp3" controls="controls" muted>Your browser does not support the audio tag</audio>
