@@ -1,0 +1,22 @@
+Page - 4: 
+Step 1: Create a file 'prop.js' and copy the below code in it.
+
+import React, { Component } from 'react';
+class Person extends Component {
+    render() {
+        return (
+            <h4 className="text-center">
+                <span className="text-primary">{this.props.name}'s</span> favourite fruit is
+                <span className="text-primary"> {this.props.fruit}</span></h4>
+        );
+    }
+}
+export default Person;
+
+Step 2: Copy the below code in index.js.
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Person from './prop';
+ReactDOM.render(<Person name="Jack" fruit="Apple"/>, document.getElementById('root'));

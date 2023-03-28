@@ -1,0 +1,60 @@
+Page - 6: 
+<html> 
+<head> 
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+    <link rel="stylesheet" href="./varFun.css"> 
+    <title>CSS Variables</title> 
+</head> 
+<body> 
+    <h4>Change color here</h4> 
+    <input type="radio" id="red" name="changeColor"> <label for="red">Red</label>  
+    <input type="radio" id="green" name="changeColor"> <label for="green"> Green </label> 
+    <input type="radio" id="black" name="changeColor"> <label for="black">Black </label> 
+ 
+    <section class="changeCol"> 
+            <ul> 
+                <li> <a href="#"> Home </a></li> 
+                <li> <a href="#">About </a></li> 
+                <li> <a href="#">Contact Us </a></li> 
+            </ul> 
+   </section> 
+</body> 
+</html> 
+
+ :root{ 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    --text-size : 25px; 
+} 
+ li,a{ 
+    color: var(--text-color); 
+    text-decoration: none; 
+} 
+ section{ 
+  font-size: var(--text-size); 
+  background-image: linear-gradient(to right, var(--bg-color), var(--text-color)); 
+}  
+.changeCol { 
+    background-color: white; 
+  } 
+  #red:checked ~ .changeCol { 
+    --text-color : brown; 
+    --bg-color : rgb(250, 182, 156); 
+    border : 2px solid var(--text-color); 
+    background-color: var(--bg-color); 
+    font-size: var(--text-size); 
+  } 
+  #green:checked ~ .changeCol { 
+    --text-color : rgb(2, 41, 2); 
+    --bg-color : rgb(172, 238, 172); 
+    border : 2px solid var(--text-color); 
+    background-color: var(--bg-color); 
+    font-size: var(--text-size); 
+  } 
+  #black:checked ~ .changeCol { 
+    --text-color : black; 
+    --bg-color :rgb(189, 188, 188); 
+    border : 2px solid var(--text-color); 
+    background-color: var(--bg-color); 
+    font-size: var(--text-size); 
+  } 

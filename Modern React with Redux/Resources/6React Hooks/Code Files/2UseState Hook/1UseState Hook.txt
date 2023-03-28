@@ -1,0 +1,33 @@
+Observe the below Class component code:
+
+class CounterClass extends Component {
+  state = { count: 0 };
+  render() {
+    return (
+      <div>
+        <p>You clicked {this.state.count} times</p>
+        <button onClick={() => this.setState({ count: this.state.count + 1 })}>
+          Click me
+        </button>
+      </div>
+    );
+  }
+}
+
+Observe the below Functional component with hooks code.
+
+function CounterHook() {
+  
+  const [count, setMyCount] = useState(0);
+  // 1. Declaring a new state variable called "count"
+  // 2. setCount will help us modify the value on count, and the same value will reflect in the DOM
+  // 3. Intial value of "count" is 0
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setMyCount(count + 1)}> {/* Calling the setMyCount() method */}
+        Click me
+      </button>
+    </div>
+  );
+}

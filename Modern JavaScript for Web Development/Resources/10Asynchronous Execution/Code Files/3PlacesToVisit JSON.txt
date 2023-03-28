@@ -1,0 +1,5 @@
+{
+"Middle East": ["Dubai , Abu Dhabi, Jerusalem"],
+"USA":["YellowStone, Grand Canyon, New York City, San Francisco"],
+"AUstralia":["Sydney, Great Barrier Reef, Melbourne"]
+}

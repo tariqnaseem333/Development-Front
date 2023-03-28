@@ -1,0 +1,27 @@
+class Employee{
+    constructor(id,name,age){
+        this.id=id;
+        this.name=name;
+        this.age=age;
+    }
+    swipeIn(){
+        console.log("Employee "+this.id+" has swiped in at "+new Date());
+    }
+    //static method that can be called only by using class name.
+    static code(){
+        console.log("Employee is coding");
+    }
+}
+//child class that can inherit all the properties of parent class(Employee)
+class PartTimeEmployee extends Employee{
+    constructor(id,name,age,contractPeriod){
+        //to access parent class constructor
+        super(id,name,age);
+        this.contractPeriod=contractPeriod;
+    }
+}
+e1=new Employee(100,"Mark",23);
+e2= new PartTimeEmployee(101,"Jane",34,3);
+Employee.code();
+e2.swipeIn();
+console.log(e2.contractPeriod);

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Input Elements</title>
+    </head>
+    <body>
+        <p>
+            Application for Drivers licence
+        </p>
+        <br>
+        <form method="post">
+              Name:
+                <input type="text" required="required" pattern="[A-Za-z]">
+                <br/>
+                <br/>
+                I own an expired driver's license.<br>
+                <input type="submit">
+        </form>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+Step 1: We need to mention the BrowserRouter in the index.js. The BrowserRouter component takes only one child. Therefore we will place the <App/> inside the BrowserRouter, as shown below:
+
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter } from 'react-router-dom'
+import "bootstrap/dist/css/bootstrap.css";
+import App from "./App";
+ReactDOM.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+  , document.getElementById('root'));
+ 
+
+Step 2: Typically the App should only have the various Routes and things common to all components, like a navbar. We will place the <Route> inside the <Switch>. This ensures that the first matching route is taken. Replace the App.js with the code shown below:
+
+import React, { Component } from 'react';
+import { Route, Redirect, Switch } from 'react-router-dom';
+import EditEmployee from './components/EditEmployee';
+import Card from './components/Card';
+ 
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <Switch>
+          <Route exact path="/" render={() => (<Redirect to="/card" />)} />
+          <Route path="/card" component={Card} />    
+          <Route path="/edit/:id" component={EditEmployee} />
+        </Switch>
+      </div>
+    );
+  }
+}
+export default App;

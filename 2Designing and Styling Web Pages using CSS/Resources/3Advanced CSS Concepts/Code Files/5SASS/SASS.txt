@@ -1,0 +1,116 @@
+Page - 6: 
+$variablename : value;
+
+// Creating variables and provding values to it
+$bgColor:red;
+$textDecoration: underline;
+$fontColor:white;
+// Using the variables for Web page
+body{
+    background-color: $bgColor;
+    color:$fontColor;
+    text-decoration: $textDecoration;
+}
+
+body {
+  background-color: red;
+  color: white;
+  text-decoration: underline;
+}
+
+
+Page - 7: 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <!-- Semantic tag for creating navigation bar -->
+    <nav class='navbar'>
+        SASS Demo
+        <ul>
+            <li><a href=#>Installation</a></li>
+            <li><a href=#>Variables</a></li>
+            <li><a href=#>Nesting</a></li>
+        </ul>
+    </nav>
+</body>
+</html>
+
+.navbar{
+    background-color: rgb(87, 156, 156);
+    ul{
+        display: inline;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    li{
+        display: inline-block;
+        a{
+            display: block;
+            padding: 6px 12px;
+            text-decoration: none;
+            color: whitesmoke
+        }
+        a:hover{
+            color:gold;
+        }
+    }
+}
+
+.navbar {
+  background-color: #579c9c;
+}
+.navbar ul {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.navbar li {
+  display: inline-block;
+}
+.navbar li a {
+  display: block;
+  padding: 6px 12px;
+  text-decoration: none;
+  color: whitesmoke;
+}
+.navbar li a:hover {
+  color: gold;
+}
+
+
+Page - 8: 
+$fontBody : "Comic Sans MS", cursive, sans-serif;
+$display:none;
+body{
+    font-family: $fontBody;
+}
+.navbar {
+    background-color: rgb(241, 228, 228);
+    overflow: auto;
+    a {
+        float: left;
+        padding: 15px;
+        color: rgb(236, 5, 5);
+        text-decoration: $display;
+        font-size: 20px;
+      }
+    a:hover{
+        background-color: black;
+    }
+    
+  }
+@media screen and (max-width: 600px) {
+    .navbar {
+        a{
+      float: $display;
+      display: block;
+    }}
+  }
+
+sass demoS.scss demoS.css
+

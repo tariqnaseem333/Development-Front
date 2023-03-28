@@ -1,0 +1,36 @@
+Page - 2: 
+Step 1: Download the React project and run the below command to install all required modules.
+
+npm install
+ Step 2: Observe the below code in src/component/AddEmployee.js
+
+  handleSubmit = ( e )=> {
+    const url = ""//provide the url of your express web service on azure
+      e.preventDefault()
+      axios.post(url , this.state.form).then( (response) => {
+        this.setState({successMessage : <Dialog id={this.state.form.empNo}/>})
+      }).catch( error => {
+        if (error.response) {
+          this.setState({ errorMessage: error.response.data.message, });
+        } else {
+          this.setState({ errorMessage: error.message,  successMessage : ''});
+        }
+      });
+  }
+Observe the below code in src/component/ViewEmployee.js
+
+    fetchEmployees = ()=> {
+      const url = ""// provide the url of your express web service on azure
+        axios.get(url).then( response => {
+            this.setState({employeeData : response.data, error : ''})
+        }).catch( error => {
+            console.log(error) 
+          }
+          );
+    }
+In Line 2 of both the files i.e. AddEmployee.js and ViewEmployee.js provide the URL of the Employee API web service which you have deployed on Azure platform. If you haven't deployed the Employee web service to Azure cloud, deploy the web service to Azure by following the instruction provided in Node & Express application deployment in Lex.
+
+Step 3: Run the application using the below command.
+
+npm start
+

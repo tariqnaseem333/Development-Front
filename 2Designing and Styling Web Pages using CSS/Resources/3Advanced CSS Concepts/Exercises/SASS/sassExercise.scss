@@ -1,0 +1,48 @@
+// Use the below metioned variables in styling given below
+// Create 2 variables here to define styling 
+// 1)varaible1 for name as boxShadow and value will be  0 4px 8px 0 rgba(0, 0, 0, 0.2);
+// 2)variable2 for name as fontFamily and value will be 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+
+
+// Use Sass variables & Nesting to achieve the mentioned output
+
+
+// .price class to be used inside .card , Use Sass nesting feature for the same
+.price {
+    color: rgb(0, 0, 0);
+    font-size: 22px;
+}
+
+// below mentioned stylings for button to be used inside .card , Use Sass nesting feature for the same
+button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(0, 255, 255);
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+}
+button:hover {
+    opacity: 0.7;
+}
+
+
+// All the above mentioned styling i.e .card & button should be placed inside this .card class
+// Provide font-family to below .card styling use the variable defined above for the same
+// Provide border shadow to the below .card styling use the variable defined above for the same
+.card{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    background-color: aliceblue;
+    
+    
+}
+.card:hover {
+    box-shadow: 0 4px 8px 0 rgba(255, 0, 0, 0.2);
+}

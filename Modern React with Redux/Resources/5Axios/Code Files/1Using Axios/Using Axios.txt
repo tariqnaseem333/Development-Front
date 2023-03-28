@@ -1,0 +1,20 @@
+Please download this Employee-Webservice  and run it. After running this application, perform a GET request to URL "http://localhost:2000/retreiveEmployeelist" using rest client. It will return array of employee data which will look similar to shown below:
+
+[
+  {
+    "empId": 101,
+    "empName": "Claire",
+    "achievements": "Has got 3 bravo awards",
+    "salary": 50000,
+    "age": 30,
+    "image": "emp1.png"
+  },
+  {
+    "empId": 102,
+    "empName": "Benny",
+    "achievements": "JavaScript expert",
+    "salary": 150000,
+    "age": 29,
+    "image": "img9.png"
+  }
+]

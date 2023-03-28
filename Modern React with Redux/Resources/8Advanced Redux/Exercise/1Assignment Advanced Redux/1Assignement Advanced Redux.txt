@@ -1,0 +1,59 @@
+Page - 3: 
+1) Inside actions folder, define action-creators as mentioned below:
+
+Action Creator 1: fetchdata() , with type: 'FETCH_EMPLOYEE_REQUEST'
+Action Creator 2: fetchSuccess(employee) , with type: 'FETCH_EMPLOYEE_SUCCESS' and 
+it will take data coming from request as paramater , hence payLoad as employee
+Action Creator 3: fetchFailure(error) , with type: 'FETCH_EMPLOYEE_FAIL' and 
+it will take error as a parameter , hence payLoad as error
+ 
+
+2) Defining initialState and Reducer inside reducer folder as mentioned below:
+
+1) Create initial state as as per following details:
+const initialState = {
+    loading: false,
+    employee: [],
+    error: ''
+}
+2) Create reducer with suitable name , pass initial state and action as parameter , apply below 
+conditions to the reducer created
+2.1) If its 'FETCH_EMPLOYEE_REQUEST' , return the state with loading true
+2.2) If its 'FETCH_EMPLOYEE_SUCCESS', return the state with loading as false , employee as 
+the value coming from server and error as empty string("")
+2.3) If its 'FETCH_EMPLOYEE_FAIL' , return the state with loading as false, employee as 
+empty array([]) , error as error coming from server , if request fails
+By default return initial state
+
+Your reducer will look like as shown below:
+
+function someReducer() {
+    switch(COndition) {
+      case:
+    }
+}
+
+
+
+Page -  4: 
+npm Store: https://www.npmjs.com/package/redux-logger
+
+
+
+
+Page - 5: 
+ Install axios in your application:
+
+npm i axios --save
+2) Import axios in the reducers file
+
+3) Create a action-creator with name fetchEmployee(), it returns a function which takes dispatch as a parameter, code the below requirements inside the functions:
+
+1) Return a function where dispatch is passed as a parameter
+2) Dispatch the action creator fetchData() 
+3) After the first dispatch do the axios call to the url 'http://localhost:3002/clientData',
+3.1) If success resposnse, dispatch fetchSuccess(emp) where emp is the response array coming from server
+3.2) If failure response, dispatch fetchFailure(error) where error is the error message coming from server if request fails
+
+
+Page - 6: 

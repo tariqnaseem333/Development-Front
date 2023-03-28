@@ -1,0 +1,110 @@
+Page - 3: 
+Step1: Create a new Express application and run the below command to install sspi package.
+
+npm i node-sspi --save
+Step 2: Copy the below code in the app.js file
+
+var express = require('express')
+var app = express()
+var server = require('http').createServer(app)
+var cors = require('cors')
+var nodeSSPI = require('node-sspi')
+var bodyParser= require('body-parser')
+// Add frontend server address
+var corsOptions = {
+  origin: ['http://frontend-server'],
+  optionsSuccessStatus: 200,
+  credentials:true
+}
+app.use(bodyParser.urlencoded({ extended: true }))
+  
+app.use("/",cors(corsOptions),function (req, res, next) {
+  var nodeSSPIObj = new nodeSSPI({
+    retrieveGroups: true  
+  })
+//method to authenticate the logged in user
+  nodeSSPIObj.authenticate(req, res, function(err){     
+    res.finished || next() 
+       
+  })
+})
+app.use(cors(corsOptions),function(req, res, next) {
+  userName = req.connection.user
+  if(userName){
+  uName = userName.substr(11,) // to display only the user name
+  var out = {}
+  out["username"] = uName;
+}
+  res.send(JSON.stringify(out))
+})
+server.listen(3080, function () {
+  console.log('Express server listening on port 3080')
+})
+
+Step 3: Run the command to start the Webservice
+
+node app.js
+
+
+
+Page - 4: 
+Step 4. Create a react application using the following command
+
+create-react-app ssodemo
+Step 5. Create a JS file called SSO.js. Copy the below code in it.
+
+import axios from "axios";
+import React from "react";
+class SSO extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {  result: "",error : "" };
+    }
+componentDidMount() {
+  this.sso();
+}
+    sso() {
+        axios
+          .get("http://localhost:3080/", {withCredentials : true})
+          .then(response => {
+            this.setState({
+              result: "   Hi " +response.data.username + "! Your username is fetched from your credentials",
+              error: ""
+            });
+          })
+          .catch(error => {
+            if (error.response) {
+              this.setState({ error: error.response.data.message, result: "" });
+            } else {
+              this.setState({ error: error.message, result: "" });
+            }
+          });
+    }
+    
+    render() {
+        return (
+            <div className="text">
+        {this.state.result
+          ? this.state.result
+          : null}
+            </div>
+        );
+    }
+}
+export default SSO;
+Step 6. Modify the App.js with the following code.
+
+import React, { Component } from "react";
+import SSO from './SSO'
+import "./App.css";
+class App extends Component {
+  render() {
+    return (
+      <SSO></SSO>
+    );
+  }
+}
+export default App;
+Step 7. Save all the files and run the following command to start the application
+
+npm start

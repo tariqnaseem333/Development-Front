@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>CSS Relative Units`</title>
+        
+    </head>
+    <body>
+        <div class="box1">Box1-font-size same as root element
+           <div class="box2">Box2-font-size 1.5 times the parent 
+               <div class="box3">Box3 - font-size 1.5 times the root</div> 
+            <div class="box4">Box4-font-size2 times the parent</div> 
+        </div> 
+       </div> 
+    </body>
+</html>

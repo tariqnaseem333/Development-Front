@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body> 
+This text is inside body element.<br> A body element can have text or other elements inside it.
+</body>
+</html>

@@ -1,0 +1,18 @@
+// can't reassign another value
+const flag = 20;
+// flag =25; //error
+
+// Good to use const when value need not be reassigned
+var name1 = 'Williams'; //bad
+const name2 = 'Williams'; //good
+
+// Array & objects can be modified but can't be reassigned
+const fruitsArr = ['apple', 'banana'];
+fruitsArr.push('citrus');
+console.log(fruitsArr);
+
+// Variables are block scoped
+{
+  const alpha = 'a'
+}
+console.log(alpha) //error

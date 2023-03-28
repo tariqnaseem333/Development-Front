@@ -1,0 +1,28 @@
+:root{ 
+    font-size: 15px; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+} 
+.parent{ 
+    padding: 10px; 
+    color: rgb(5, 5, 98); 
+    /* width: should be 75 percent of the screen; */ 
+    border: 2px solid rgb(5, 5, 98); 
+    /* height: should occupy 9 out of 10 parts of the screen height ; */ 
+     font-size: 25px;  
+    background-image: radial-gradient( lightblue,lightgreen, lightblue); 
+} 
+.heading{ 
+    /* font-size: should be 2times the parent element; */ 
+} 
+.about{ 
+    margin: 10px; 
+    /* font-size: should be 1.5 times the root element; */ 
+} 
+.frameworks{ 
+    margin: 10px; 
+    border: 1px dashed rgb(5,5,98); 
+    /* font-size: should be same as the root element; */ 
+} 
+.frameworks li{ 
+    /* font-size: should be 1.5 times the parent element; */ 
+} 

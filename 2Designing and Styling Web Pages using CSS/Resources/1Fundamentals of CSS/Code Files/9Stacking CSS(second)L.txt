@@ -1,0 +1,33 @@
+.box{
+  height: 100px;
+  width: 100px;
+  border: 1px dotted black;
+  position: absolute;
+}
+.div1{
+  margin-top: -20px;
+  background-color: greenyellow;
+  z-index: 5;
+}
+.div2{
+  margin-top: 60px;
+  margin-left: 25px;
+  background-color: lightseagreen;
+  z-index: 15;
+}
+.div3{
+  margin-top: 20px;
+  margin-left: 40px;
+  background-color: lightcoral;
+  z-index: 50;
+}
+.div4{
+    height: 140px;
+  width: 200px;
+  border: 1px dotted black;
+  position: absolute;
+    margin-top: 20px;
+    margin-left: 60px;
+    background-color: goldenrod;
+    z-index: 5;
+}

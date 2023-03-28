@@ -1,0 +1,15 @@
+<html> 
+  <head> 
+    <style> 
+     div { 
+       font-size: x-large; 
+       margin: 200px; 
+       padding: 50px; 
+       border: 25px solid navy; 
+       } 
+    </style>  
+ </head> 
+ <body> 
+    <div> Just CSS!! </div> 
+ </body> 
+</html> 

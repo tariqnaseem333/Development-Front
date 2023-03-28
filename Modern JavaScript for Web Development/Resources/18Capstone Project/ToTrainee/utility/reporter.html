@@ -1,0 +1,56 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="../src/css/bootstrap.css">
+</head>
+
+<body>
+    <div id="msg" class="text-danger"></div>
+    <p class="m-5 text-right">
+        <a href="../src/index.html" class="btn btn-lg btn-primary">Home</a>
+    </p>
+    <div id="marks">
+        <div  class="m-5 alert alert-info">Your evaluated marks: <span id="passed"></span>/<span id="total"></span></div>
+    </div>
+
+    <div id="error"></div>
+
+    
+    <div class="m-5"><table id="res" class="table table-hover table-bordered">
+        <tr>
+            <th>Module</th>
+            <th>Test case</th>
+            <th>Status</th>
+        </tr>
+    </table>
+</div>
+</body>
+<script>
+    fetch("../result.json").then(res => res.json()).then(results => {
+        let table = document.getElementById("res")
+        let total=results.passed+results.failed
+        if(total==0&&results.reportData.length==0){
+            document.getElementById("error").innerHTML=`<div class="m-5 alert alert-danger">YOUR CODE HAS COMPILATION ERROR;Marks wont be awarded for this code</div>`
+            document.getElementById("total").innerText=""
+            document.getElementById("passed").innerText=""
+            document.getElementById("marks").innerHTML=""
+            table.innerHTML=""
+        }else{
+            document.getElementById("total").innerText=results.passed+results.failed
+            document.getElementById("passed").innerText=results.passed
+            results.reportData.forEach(result => {
+            table.innerHTML += `
+        <tr>
+        <td>${result.suite}</td>
+        <td>${result.test}</td>
+        <td>${result.status}</td>
+        </tr>
+        `})
+        }
+        
+    })
+        .catch(err => document.getElementById("msg").innerText = "Run the reportGenerator.js using node to see the results")
+
+</script>
+
+</html>

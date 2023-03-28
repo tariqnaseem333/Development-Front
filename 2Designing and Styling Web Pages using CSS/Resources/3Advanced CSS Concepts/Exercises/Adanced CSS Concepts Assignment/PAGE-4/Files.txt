@@ -1,0 +1,21 @@
+<html> 
+    <head> 
+        <style> 
+            body { 
+                background-color: rgb(13, 32, 23); 
+            }           
+        </style> 
+    </head> 
+    <body> 
+        Welcome to GEC 2 
+        <img src = "gec2.PNG"> 
+        Salient Features of GEC 2 
+        Can accommodate at max 9500 trainees at a time. 
+        The Building is distributed among 7 levels. 
+        Magna food court is located on B2. 
+        Each classroom is equipped with 2 projector screens. 
+        Without suitable clothing, security guards do not let anybody enter the Building. 
+        <a href = "https://lex.infosysapps.com/page/home">Click here</a> 
+         to know about Infosys's Learning Platform. 
+    </body> 
+</html> 

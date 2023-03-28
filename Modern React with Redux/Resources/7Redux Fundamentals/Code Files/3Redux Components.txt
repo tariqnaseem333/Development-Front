@@ -1,0 +1,184 @@
+Page - 3: 
+Let us have a look at the container for app component i.e. AppContainer.
+//can be present in AppContainer.js file
+import { borrowAction , returnAction } from './redux';
+import AppRedux  from './AppRedux'; //presentational component that contains the view
+import { connect } from 'react-redux';
+const mapStatetoProps = state => ({
+    pBookBalance : state.accountBooks
+});
+const mapDispatchToProps = {
+    borrowBooks : borrowAction ,
+    returnBooks : returnAction 
+}
+export default connect(mapStatetoProps,mapDispatchToProps)(AppRedux);
+
+
+Page - 4: 
+Here we are going to create the view component:
+
+import React, { Component } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+// a presentational component which has no state of its own
+export default class AppRedux extends Component {
+    userInputQty = 0;
+    render() {
+        return (<div>
+        <div className={'col-5 offset-1 card'}>
+            <br/>
+            <table>
+                <tbody>
+                    <tr>
+                        <th><h3>Books in library are: </h3></th>
+                        <td><h3>{+this.props.pBookBalance }</h3></td>
+                    </tr>
+                    <tr>
+                        <th>Enter the amount for transaction: </th>
+                        <td><input onChange={(e)=>{ this.userInputQty = e.target.value;}} type='number' className={'form-control'}/></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button onClick={()=>{this.props.debit(this.userInputQty)}} className={'btn btn-primary'}>
+                                Borrow </button>
+                        </td>
+                        <td>
+                            <button onClick={()=>{this.props.credit(this.userInputQty)}} className={'btn btn-success'}>
+                                Debit </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br/>
+        </div>
+        </div>);
+    }
+}
+
+
+Page - 5: 
+When rendering the root component to the DOM, the root component should be wrapped within the <Provider> component as shown below.
+
+//other imports if any
+import React from 'react';
+import ReactDOM from 'react-dom';
+import AppRedux from './AppContainer';
+import { Provider } from 'react-redux';
+import { bankStore } from './redux';
+ReactDOM.render(
+  <Provider store={ bankStore }>
+    <AppRedux />
+  </Provider>,
+  document.getElementById("root")
+);
+
+
+Page - 6: 
+Step 1: Copy the below code in index.js file.
+
+import * as serviceWorker from './serviceWorker';
+//other imports
+import React from 'react';
+import ReactDOM from 'react-dom';
+import AppRedux from './AppContainer';
+import { Provider } from 'react-redux';
+import { bankStore } from './redux';
+ReactDOM.render(<Provider store={bankStore}>
+                    <AppRedux/>
+                </Provider>,
+                document.getElementById('root'));
+serviceWorker.unregister();
+ 
+
+Step 2: Create a file named AppRedux.js and copy the below code in it.
+
+import React, { Component } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+export default class AppRedux extends Component {
+    
+    state = {userInputAmt:0};
+    render() {
+        return (<div>
+        <div className={'col-5 offset-1 card'}>
+            <br/>
+            <table>
+                <tbody>
+                    <tr>
+                        <th><h3>Your account has: </h3></th>
+                        <td><h3>{'$'+this.props.pAccountBalance}</h3></td>
+                    </tr>
+                    <tr>
+                        <th>Enter the amount for transaction: </th>
+                        <td><input onChange={(e)=>{ this.userInputAmt = e.target.value;}} type='number' className={'form-control'}/></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button onClick={()=>{this.props.debit(this.userInputAmt)}} className={'btn btn-primary'}>
+                                Debit </button>
+                        </td>
+                        <td>
+                            <button onClick={()=>{this.props.credit(this.userInputAmt)}} className={'btn btn-success'}>
+                                Credit </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br/>
+        </div>
+        </div>);
+    }
+}
+
+ 
+
+Step 3:  Create a file named redux.js and copy the below code in it.
+
+import { createStore, combineReducers } from 'redux';
+const initialBankState = { accountBalance: 666666 };
+// can be present in action.js file
+export const debitAction = (amt) => ({
+    type: 'DEBIT',
+    amount: amt
+});
+export const creditAction = (amt) => ({
+    type: 'CREDIT',
+    amount: amt
+});
+// can be present in reducers.js file
+export const accountReducer = (initialState = initialBankState.accountBalance, action) => {
+    
+    switch(action.type){
+        case 'DEBIT':
+            let newDebBal = initialState - action.amount;
+            return newDebBal;
+        case 'CREDIT':
+            let newCredBal = initialState + (-(-action.amount));
+            return newCredBal;
+        default: 
+            return initialState;              
+    }
+};
+export const bankReducers = combineReducers({accountBalance: accountReducer});
+// can be present in store.js file
+function configureStore(){
+    const store = createStore(bankReducers,initialBankState);
+    return store;
+}
+export const bankStore = configureStore();
+ 
+
+Step 4:  Create a file named AppContainer.js and copy the below code in it.
+
+//can be present in AppContainer.js file
+import { debitAction , creditAction } from './redux';
+import AppRedux  from './AppRedux';
+import { connect } from 'react-redux';
+const mapStatetoProps = state => ({
+    pAccountBalance : state.accountBalance
+});
+const mapDispatchToProps = {
+    debit: debitAction,
+    credit: creditAction
+}
+export default connect(mapStatetoProps,mapDispatchToProps)(AppRedux);
+
+

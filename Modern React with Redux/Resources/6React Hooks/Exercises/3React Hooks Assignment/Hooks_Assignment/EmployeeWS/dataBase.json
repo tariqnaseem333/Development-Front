@@ -1,0 +1,46 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Antony Lewis",
+      "skill": "Javascript",
+      "contactNo": "9090898989",
+      "department": "Development"
+    },
+    {
+      "id": 2,
+      "name": "Tom Jennifer",
+      "skill": "React v16.8",
+      "contactNo": "1235672345",
+      "department": "Education & Training"
+    },
+    {
+      "id": 3,
+      "name": "Rose Marry",
+      "skill": "Node v2",
+      "contactNo": "5647389576",
+      "department": "Education & Training"
+    },
+    {
+      "id": 4,
+      "name": "Marry Jane",
+      "skill": "Express V4",
+      "contactNo": "7897897890",
+      "department": "Production"
+    },
+    {
+      "id": 5,
+      "name": "Peter Parker",
+      "skill": "Talent recuriter",
+      "contactNo": "8907896785",
+      "department": "HRD Dept"
+    },
+    {
+      "id": 6,
+      "name": "Stever Rogers",
+      "skill": "Hotel management",
+      "contactNo": "9089786756",
+      "department": "Facilities"
+    }
+  ]
+}

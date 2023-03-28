@@ -1,0 +1,87 @@
+Demo steps
+
+1. Let us create a new component AddEmployee component as seen below, which contains three input fields for EmpId, Name and Designation.
+
+import React, { useState } from 'react';
+const AddEmployee = ({ addEmployee }) => {
+    const [empId, setEmpId] = useState('');
+    const [name,setName] = useState('');
+    const [designation,setDesignation] = useState('');
+   
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const newEmployee={empId:empId,name:name,designation:designation}
+        addEmployee(newEmployee);
+        setEmpId('');
+        setName('');
+        setDesignation('')
+    }
+    return (
+        <form onSubmit={handleSubmit}>
+            EmpId:<input type='text' value={empId} onChange={(e) => setEmpId(e.target.value)} /><br/><br/>
+            EmpName: <input type='text' value={name} onChange={(e) => setName(e.target.value)} /><br/><br/>
+            Designation: <input type='text' value={designation} onChange={(e) => setDesignation(e.target.value)} /><br/><br/>
+            <input type='submit' value='Add Employee' />
+        </form>
+    );
+}
+export default AddEmployee;
+Line 18,19 and 20 - Once user enters data in the form, state value of AddEmployee component gets updated through useState() hook
+
+Line 11 - Once the form is submitted, the employee details is passed as an argument to the addEmployee() method, which is a prop passed from Employees parent component.
+
+2. Let us modify the Employees.js file as shown below:
+
+import React, { useState} from 'react';
+import AddEmployee from './AddEmployee';
+const Employees = () => {
+        const [employees, setEmployees] = useState([
+                { empId: 1234, name: 'John', designation: 'SE' },
+                { empId: 4567, name: 'Tom', designation: 'SSE' },
+                { empId: 8910, name: 'Kevin', designation: 'TA' }
+        ])
+        const addEmployee = (newEmployee) => {
+                setEmployees([...employees, newEmployee]);
+        };
+        return (<React.Fragment>
+                <table style={{ width: '60%' }} className='table'>
+                        <thead className="thead-light">
+                                <tr>
+                                        <th>EmpID</th>
+                                        <th>Name</th>
+                                        <th>Designation</th>
+                                </tr>
+                        </thead>
+                        <tbody>
+                                {employees.map(employee => {
+                                        return (<tr>
+                                                <td>{employee.empId}</td>
+                                                <td>{employee.name}</td>
+                                                <td>{employee.designation}</td>
+                                        </tr>)
+                                })
+                                }
+                        </tbody>
+                </table><br/><br/>
+                <AddEmployee addEmployee={addEmployee} />
+        </React.Fragment>)
+}
+export default Employees;
+Line 12 - The addEmployee method adds the new employee to the existing employee state
+
+Line 34 - The addEmployee method is passed as a prop to AddEmployee component.
+
+ 
+
+3. Render the Employees component within index.js 
+
+​import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import * as serviceWorker from './serviceWorker';;
+import Employees from './Employees';
+ReactDOM.render(<Employees/>, document.getElementById('root'));
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();

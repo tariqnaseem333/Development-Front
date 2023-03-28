@@ -1,0 +1,25 @@
+<!-- Add stylings for the div tags to achieve the stacking priority and hover effects -->
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Stacking</title> 
+    <link  rel="stylesheet"  href="./stacking.css"> 
+</head> 
+<body> 
+<div style="display: flex; margin: 100px;"> 
+  <div> 
+    Hyper Text Markup Language 
+  </div> 
+  <div>
+    Cascading Style Sheets 
+  </div> 
+  <div> 
+    Bootstrap 
+  </div> 
+  <div>
+    JavaScript 
+  </div> 
+</div>
+</body>
+</html>

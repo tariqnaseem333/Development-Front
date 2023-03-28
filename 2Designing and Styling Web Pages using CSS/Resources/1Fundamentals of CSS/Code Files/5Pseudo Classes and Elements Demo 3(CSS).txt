@@ -1,0 +1,110 @@
+/* Providing font to text in document */
+body {font-family: Arial, Helvetica, sans-serif;}
+/* Aligning section to center */
+section{
+    width:500px;
+    margin-left:auto;
+    margin-right:auto;
+    border:2px solid black;
+}
+/* Styling h3 tag to center */
+h3{
+    text-align: center;
+}
+/* Styling Navigation Bar */
+.navbar {
+    overflow: hidden;
+    background-color: #0f0d0d;
+    color: bisque;
+}
+a {color: bisque;}
+/* Using link pseudo class to styling anchor tag */
+a:link {
+    float: left;
+    display: block;
+    color: azure;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+/* Using hover pseudo class for anchor tag */
+a:hover {
+    background-color: rgb(160, 155, 155);
+    color: black;
+}
+/* Styling the container */
+.container {
+    padding: 20px;
+    background-color: #000000;
+    color: whitesmoke;
+}
+/* For input tag */
+input[type=text]{
+    border: none;
+    border-bottom: 1px solid black; 
+    width: 80%;
+    padding: 12px;
+    margin: 8px 0;
+    display: inline-block;
+}
+/* Using focus pseudo class to style input tag */
+input:focus {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid black;
+    background-color: darkgrey;
+}
+/* Styling Subscribe button */
+input[type=submit] {
+    width: 80%;
+    padding: 12px;
+    margin: 8px;
+    margin-left:40px;
+    display: inline-block;
+    box-sizing: border-box;
+    border-radius: 2px;
+    background-color:rgb(0, 68, 255);
+    color: white;
+    border: none;
+}
+/* Styling checkbox */
+input[type=checkbox] {
+    margin-top: 16px;
+}
+/* Using hover pseudo class to style button */
+input[type=submit]:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+/* Styling the first letter of text */
+p::first-letter{
+    font-size:x-large;
+    color:aqua;
+}
+/* Styling the <p> tag when it gets selected */
+p::selection{
+    background-color:yellow;
+    color:red;
+}
+.formStyle {
+    padding: 20px;
+}
+/* Styling placeholder of input  */
+input::placeholder
+ {
+    color: rgb(0, 0, 0);
+}
+/* Styling label in checkbox */
+input[type=checkbox]+label {
+    color: red;
+    font-style: italic;
+}
+/* Styling label of radio when user selected it */
+input[type=radio]:checked+label{
+    color: green;
+}
+/* Styling label of checkbox when user selected it */
+input[type=checkbox]:checked+label {
+    color: green;
+    font-style: normal;
+}

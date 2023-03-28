@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Modules</title>
+</head>
+<body>
+<script type="module" src="../js/bookingDetails.js"></script>
+</body>
+</html>

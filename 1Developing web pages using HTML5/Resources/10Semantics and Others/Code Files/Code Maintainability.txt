@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML</title>
+</head>
+<body>
+    <!-- <h1>Employee Details</h1>
+    <table border="1">
+        <thead>
+            <tr> <th>Employee Id</th> <th>Employee Name</th> </tr>
+        </thead>
+        <tbody>
+            <tr>  <td>1001</td>  <td>Jack</td>  </tr>
+            <tr>  <td>1002</td>  <td>John</td>  </tr>
+        </tbody>
+    </table> -->
+    <table border="1">
+        <caption>Employee Details</caption>
+        <thead>
+            <tr> <th>Employee Id</th> <th>Employee Name</th> </tr>
+        </thead>
+        <tbody>
+            <tr>  <td>1001</td>  <td>Jack</td>  </tr>
+            <tr>  <td>1002</td>  <td>John</td>  </tr>
+        </tbody>
+    </table>
+</body>
+</html>

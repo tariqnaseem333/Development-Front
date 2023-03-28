@@ -1,0 +1,64 @@
+Page - 2: 
+function generateJSX() {
+  return <h1>Hello World</h1>
+}
+function display() {
+  return (
+    <div>
+      This is inside a div
+      {generateJSX()}
+      This is after h1 tag
+    </div>
+  )
+}
+ReactDOM.render(display(), document.getElementById('root'));
+
+Page - 6: 
+Create a function in the index.js page which will store two employee objects and return the element that needs to be displayed as shown:
+import React from 'react';
+import ReactDOM from 'react-dom';
+import image1 from './img7.jpg';
+import image2 from './img10.jpg';
+const emp1={
+  "empId":100,
+  "empName":"Jack",
+  "age":30,
+  "salary":50000
+};
+const emp2={
+  "empId":101,
+  "empName":"Jane",
+  "age":24,
+  "salary":40000
+};
+function getEmployeeDetails(){
+  const element=(
+    <div>
+    <h3>Employee Details</h3>
+    <ol>
+    <li>
+      <div>
+      <span>Name: {emp1.empName}</span><br/>
+      <span>Id: {emp1.empId}</span><br/>
+      <span>Age: {emp1.age}</span><br/>
+      <span>Salary: {emp1.salary}</span><br/>
+      <img alt="Employee" src={image1} width="100px"/><br/>
+      <a href="#">Edit Details</a>
+      </div>    
+    </li>
+    <li>
+      <div>
+      <span>Name: {emp2.empName}</span><br/>
+      <span>Id: {emp2.empId}</span><br/>
+      <span>Age: {emp2.age}</span><br/>
+      <span>Salary: {emp2.salary}</span><br/>
+      <img alt="Employee" src={image2} width="100px"/><br/>
+      <a href="#">Edit Details</a>
+      </div>    
+    </li>
+    </ol>
+    </div>
+  ) 
+  return element;
+}
+ReactDOM.render(getEmployeeDetails(), document.getElementById('root'));

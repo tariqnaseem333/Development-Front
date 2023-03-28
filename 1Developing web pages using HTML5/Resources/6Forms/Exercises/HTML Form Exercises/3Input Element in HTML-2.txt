@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Input Elements</title>
+    </head>
+    <body>
+        <p>
+            Application for Drivers licence
+        </p>
+        <br>
+        <form method="post">
+            Date Of Birth  <br>
+            <input type="submit">
+        </form>
+    </body>
+</html>

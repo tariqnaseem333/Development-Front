@@ -1,0 +1,15 @@
+<html> 
+    <head> 
+        <link rel = "stylesheet" href = "positionExercise.css"> 
+    </head> 
+    <body> 
+        <div id = "header">Header</div> 
+        <div id = "content"> 
+            Content 
+            <div id = "content1">Content 1</div> 
+            <div id = "content2">Content 2</div> 
+            <div id = "content3">Content 3</div> 
+        </div> 
+        <div id = "footer">Footer</div> 
+    </body> 
+</html> 

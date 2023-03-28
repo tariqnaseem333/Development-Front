@@ -1,0 +1,80 @@
+Page - 2: 
+Let's have a look at a simple functional component, called <DisplayMessage/>. This component takes a message prop from outside and displays it withing the component.
+
+export function DisplayMessageFunc(props) {
+  const { message } = props;
+  return (
+    <h1>The Message is: {message}</h1>
+  );
+}
+
+Inside index.js, we are rendering as shown below:
+
+ReactDOM.render(
+  <DisplayMessageFunc message={'Why Hooks...?'} />,
+  document.getElementById('root')
+);
+
+Step 1: Convert the existing functionality to a class component. Let's call it <DisplayMessageClass/>
+
+export class DisplayMessageClass extends Component {
+  render() {
+    const { message } = this.props;
+    return (
+      <h1>The Message is: {message}</h1>
+    );
+  }
+}
+For now, the above is behaving exactly as the previous functional component, but syntactically, we have modified the component to a class component.
+
+Step 2:
+
+Add a <button/> in render() method,
+
+Create a state to hold a boolean variable called "show". The initial value of "show", will be false.
+
+Bind the message in JSX, to the "show" state variable, (only the true value of show, should display the message)
+
+Change the state, on click of the button, i.e. update "show" to true, onClick of the button, by calling setState().
+
+export class DisplayMessageClass extends Component {
+  state = { show: false };
+  render() {
+    const { message } = this.props;
+    const { show } = this.state;
+    return (
+      <>
+        <button onClick={() => this.setState({ show: true })}>Get Message</button>
+        <h1>The Message is: {show ? message : ''}</h1>
+      </>
+    );
+  }
+}
+
+Observe the below code: (Still a Functional component)
+export function DisplayMessageFuncHook(props) {
+  const { message } = props;
+  const [show, setShow] = React.useState(false);
+  return (
+    <>
+      <button onClick={() => setShow(true)}>Get Message With Hooks</button>
+      <h1>The Message is: {show ? message : ''}</h1>
+    </>
+  );
+}
+
+Just to revisit, the same code with class component was as shown below:
+
+export class DisplayMessageClass extends Component {
+  state = { show: false };
+  render() {
+    const { message } = this.props;
+    const { show } = this.state;
+    return (
+      <>
+        <button onClick={() => this.setState({ show: true })}>Get Message</button>
+        <h1>The Message is: {show ? message : ''}</h1>
+      </>
+    );
+  }
+}

@@ -1,0 +1,18 @@
+creating a redux store: Demo
+Store is created by using the createStore() method. The createStore() method needs to be imported from Redux, and it takes a single reducer as parameter. We generally pass root reducer as parameter to the createStore() method.
+
+// Below code can be present in store.js file
+import { createStore } from 'redux';
+//initial state 
+export const initialBookState = {
+    accountBooks: 666666
+}
+//reducer config
+export const libraryReducers; //all the reducers combined
+ 
+//store config
+export function configureStore(){
+    const store = createStore( bookReducers, initialBookState ); 
+    return store;
+}
+export const bookStore = configureStore();

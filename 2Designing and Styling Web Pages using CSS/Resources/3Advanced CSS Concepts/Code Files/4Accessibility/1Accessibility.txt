@@ -1,0 +1,40 @@
+Page - 2: 
+Add the below code to access_content.css
+.hide{ 
+  Position: absolute; 
+  Left: -10000px; 
+  Top: auto; 
+  Height: 1px; 
+  Width: 1px; 
+  Overflow: hidden; 
+} 
+
+Add the below code to access_content.html
+<div class = “hide”>This is a hidden text. </div> 
+
+Page - 3: 
+Add the below code to access_skiplink.css
+#skiplink a { 
+   Position: absolute; 
+   Left: -10000px; 
+   Top: auto; 
+   Height: 1px; 
+   Width: 1px; 
+   Overflow: hidden; 
+} 
+#skiplink a: focus { 
+   Position: static; 
+   Width: auto; 
+   Height: auto; 
+} 
+<div id = “skiplink”><a href = “#content”>Skip to main content</a></div> 
+
+Page - 7:
+Add the below code to access_img.html
+<html> 
+ <body> 
+  <p>If a browser cannot find the image, it will display the alternate text as shown below:</p> 
+  <img src = ”xyz.jpg” alt = “GEC 2 Building”> 
+ </body> 
+</html> 
+ 

@@ -1,0 +1,54 @@
+Page - 2: 
+transform : translate( x, y )
+<html>
+<head>
+    <title> Transformation - Translate</title>
+    <style>
+        .box{
+            height: 50px;
+            width: 50px;
+            background-color: brown;
+            color: white;
+        }  
+        #move{
+            position: relative;
+            transform: translate(50px, 50px); /* Moves the element right and down by 50px */
+        }
+    </style>
+</head>
+<body>
+    <div class='box'>Box 1</div>
+    <div class='box' id='move'>Box2</div>
+</body>
+</html>
+
+transform : scale(x) -> scales the height and width by x-value
+transform: scale(x,y) -> scales the element width(x-value) and height(y value)
+<html>
+<head>
+    <title>Transformation - Scale</title>
+    <style>
+        .box{
+            float: left;
+            margin: 50px;
+            height: 100px;
+            width: 100px;
+            background-color: brown;
+            color: white;
+        }  
+        #expand{
+            transform: scale(2);
+        }
+        #shrik{
+            transform: scale(0.75);
+        }
+    </style>
+</head>
+<body>
+    <div class='box'>No Scale </div>
+    <div class='box' id='expand'>Box Expanded</div>
+    <div class='box' id='shrik'>Box Shrinked</div>
+</body>
+</html>
+
+

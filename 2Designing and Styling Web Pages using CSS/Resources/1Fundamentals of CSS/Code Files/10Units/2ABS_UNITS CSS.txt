@@ -1,0 +1,30 @@
+.pixelUnit{
+    font-size: 30px;
+    margin: 1px;
+    padding: 1px;
+    border : 1px solid brown;
+    background-color: rgb(245, 222, 222);
+    color: brown;
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.centimeterUnit{
+    font-size: 1cm;
+    margin: 1cm;
+    padding: 1cm;
+    border : 1cm solid blueviolet;
+    background-color: rgb(211, 195, 226);
+    color: blueviolet;
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.inchUnit{
+    font-size: 1in;
+    margin: 1in;
+    padding: 1in;
+    border : 1in solid green;
+    background-color:rgb(192, 236, 192);
+    color: green;
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}

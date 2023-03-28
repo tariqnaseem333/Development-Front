@@ -1,0 +1,22 @@
+The index.js file will remain unchanged as shown below:
+
+import { BrowserRouter } from 'react-router-dom';
+ReactDOM.render( <App /> , document.getElementById('root') );
+ 
+
+We use BrowserRouter because it can handle dynamic requests. This will be added to our App component present in App.js as shown below:
+
+import { BrowserRouter } from 'react-router-dom';
+const Home = () => <h2> Home </h2>;
+const NewsFeed = () => <h2> News Feed </h2>;
+class App extends Component {
+  render() {
+    return (
+      <BrowserRouter>
+        <React.Fragment>
+          ...content...  
+        </React.Fragment>
+      </BrowserRouter>
+    );
+  }
+}

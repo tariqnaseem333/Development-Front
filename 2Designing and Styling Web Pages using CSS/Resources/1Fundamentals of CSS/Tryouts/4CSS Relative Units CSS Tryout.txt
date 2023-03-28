@@ -1,0 +1,23 @@
+div{ 
+    padding: 10px; 
+    font-size: 20px; 
+    margin: 10px; 
+} 
+
+.box1{ 
+    /* height-60% of the viewport eight*/ 
+    /* width - 70% of the viewport width */ 
+    border: 1px solid brown; 
+} 
+
+.box2{ 
+    border:1px solid green; 
+} 
+
+.box3{ 
+    border: 1px solid blue;
+} 
+
+.box4{ 
+    border: 1px solid red; 
+} 

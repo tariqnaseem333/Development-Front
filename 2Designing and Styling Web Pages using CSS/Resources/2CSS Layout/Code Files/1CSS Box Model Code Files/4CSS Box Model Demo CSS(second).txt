@@ -1,0 +1,23 @@
+<html>
+<head>
+    <style>
+        div {
+            Font-size: x-large;
+            Margin: 100px;
+            Padding: 20px;
+            Border: 25px solid navy;
+        }
+        P {
+            Margin: 50px;
+            Border: 2px solid black;
+            Padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div>Here is something interesting.
+        <p> What you are reading is a paragraph which is present inside a div tag. The alignment of the paragraph is
+            changed because of the styling provided using margin. </p>
+    </div>
+</body>
+</html>

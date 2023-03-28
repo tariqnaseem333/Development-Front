@@ -1,0 +1,103 @@
+body{
+    justify-content: center;
+    margin: 5% 25%; 
+    border: 1px solid #aaaaaa;
+    box-shadow: 10px 10px 5px #aaaaaa;
+    border-radius: 5px;
+    font-family: Helvetica;
+}
+
+#imgContainer{
+    text-align: center;
+    width: 35%;
+}
+
+table{
+    width: 100%;
+    height: 100%;
+}
+
+.alignInRow{
+    display: flex;
+    margin-top: 15px;
+}
+
+.data{
+    border-left: 1px solid #aaaaaa;
+    padding-left: 25px;
+}
+
+ol{
+    margin: 0px;
+    padding: 0px;
+}
+
+#outerCard{
+    border-radius: 2px;
+    margin: 5px;
+    padding: 35px;
+}
+
+.line{
+    padding: 10px 0px;
+    border-bottom: 1px solid #aaaaaa;
+}
+
+
+
+/* Add class/id(which is appropriate) to titles-AboutMe,Education, Skills and Experience 
+    and select all the titles using the appropriate selctor and assign below css styling rule
+    min-width: 25%;
+    text-align: right;
+    padding-right: 25px;
+    font-style: italic;
+    color: teal;
+    font-size: larger;
+*/
+
+/* Code the the below styling rule for elements whose "class" attribute value is "details" 
+        1. Set font style to italic
+        2. Set the color to #666666
+        3. Set font family to Georgia
+        4. Align the text to justify
+*/
+
+/* Use appropriate selector to select all p element inside <div class='data'>.....</div> and assign the below styling rule  
+    1. set the font size to 13px
+    2. margin to 0px
+    3. padding to 5px 0px
+*/
+
+/* Use appropriate selector to select all anchor tags and assign the below styling rule  
+    1. set the text decoration to None
+    2. border bottom to 1px dotted #999
+*/
+
+/* Use appropriate selectors which selects all the  li elements which are only inside ol and assign the below styling rule
+    float: left;
+    list-style: none;
+    padding:2px 5px ;
+    background-color: #999;
+    margin: 5px;
+    border: 1px solid gray;
+    border-radius: 3px;
+    color: white;
+*/
+
+
+/* Select the image using appropriate selector and assign below styling rule
+    padding: 7px;
+    border: 1px solid #aaaaaa;
+    width: 200px;
+    height: 200px;
+    box-shadow: 10px 10px 5px #aaaaaa;
+*/
+
+/* Select the "About me" section's paragraph using appropriate selector and assign the below styling rule
+    padding: 0px 85px 5px 10px;
+    line-height: 20px;
+*/
+
+/* Select all the b tags inside the <div class="data">...</div> and assign the below css rule
+    font-weight: 550;
+*/

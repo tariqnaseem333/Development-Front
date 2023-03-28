@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cross-browser</title>
+</head>
+<body>
+    <form name="f1">
+        <div>
+            <label>Username</label>
+            <input type="text" name="username" />
+        </div>
+        <div>
+            <label>Password</label>
+            <input type="password" name="password" />
+        </div>
+        <input type="submit" />
+    </form>
+    <hr>
+    <hr>
+    <form name ="f2" oninput="x.value=parseInt(a.value)+parseInt(b.value)">
+        0<input type="range" id="a" value="10" min="1" max="200">200+
+        <input type="number" id="b" value="10">=
+        <output name="x" for="a b"></output>
+    </form>
+</body>
+</html>

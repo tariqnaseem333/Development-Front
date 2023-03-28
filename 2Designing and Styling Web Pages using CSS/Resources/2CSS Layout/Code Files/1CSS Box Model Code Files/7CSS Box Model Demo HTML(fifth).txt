@@ -1,0 +1,12 @@
+<head> 
+   <style> 
+     p { 
+       Font-size: x-large; 
+       Width: 320px; 
+       Height: 250px; 
+       Margin: 0px; 
+       Padding: 20px; 
+       Border: 25px solid navy; 
+      } 
+   </style> 
+</head> 

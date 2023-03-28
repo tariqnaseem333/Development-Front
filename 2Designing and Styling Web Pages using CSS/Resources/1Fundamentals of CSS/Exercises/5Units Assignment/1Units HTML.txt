@@ -1,0 +1,21 @@
+<div class="parent"> 
+    <span class="heading"> Cascading Style Sheets</span> 
+    <div class="about"> 
+        As the name itself says, it is a collection of different styings to be applied for a webpage that enhances the 
+        user experience. 
+        CSS makes the webpage attractive, interactive and makes it good looking. 
+        Modern web apps heavily rely on CSS or CSS based frameworks to make web pages 
+        more appealing to users 
+    </div> 
+    <h3> Other frameworks built on CSS are:</h3> 
+    <ul class="frameworks"> 
+        <li>Foundation</li> 
+        <li>Pure</li> 
+        <li>Bootstrap <br> <b>requires plugins like</b> 
+            <ol> 
+                <li>jQuery</li> 
+                <li>Popper</li> 
+            </ol> 
+        </li> 
+    </ul> 
+</div> 

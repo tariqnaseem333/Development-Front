@@ -1,0 +1,51 @@
+h1 { 
+    text-align: center; 
+    text-transform: uppercase;    
+  } 
+div { 
+    border: 5px solid teal; 
+    font-family: 'Courier New', monotype; 
+    font-weight: 600; 
+    font-size: 14px; 
+    padding: 10px; 
+    margin: 2px; 
+    box-sizing: border-box; 
+  } 
+span { 
+    background-color: #a09191; 
+  } 
+#static { 
+    height: 100px; 
+    /*adding top, bottom, left, or right properties won't affect 
+    this element. Try it! Uncomment the code below to watch absolutely nothing happen.*/ 
+    /*  right: 500px;*/ 
+  } 
+#relative { 
+    border-color: rgb(161, 87, 161); 
+    height: 150px; 
+    position: relative; 
+    /*add top, bottom, left, or right properties to see this move*/ 
+  } 
+.absolute { 
+    border-color: red; 
+    position: absolute; 
+    bottom: 0; 
+    right: 0; 
+    max-width: 75%; 
+    background-color: #f2f2f2;   
+    box-shadow: 6px 6px rgba(0, 0, 0, 0.3) 
+  } 
+#parent-container { 
+    border-color: rgb(230, 16, 230); 
+    height: 400px; 
+    /*this is positioned relatively. What happens to the red box if it wasn't?*/ 
+    position: relative; 
+  } 
+#fixed { 
+    border-color: blue; 
+    position: fixed; 
+    bottom: 0; 
+    left: 0; 
+    margin: 0; 
+    width: 300px 
+  } 

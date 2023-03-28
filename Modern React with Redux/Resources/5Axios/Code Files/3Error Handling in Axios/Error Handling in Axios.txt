@@ -1,0 +1,246 @@
+Page - 1: 
+Let's see how we can handle errors in the Employee component we created previously:
+
+fetchEmployees() {
+    axios
+      .get("http://localhost:2000/retreiveEmployeelist")
+      .then(response => {
+        this.setState({
+          result: response.data,
+          error: ""
+        });
+      })
+      .catch(error => {
+        if (error.response) {
+          this.setState({ error: error.response.data.message, result: "" });
+        } else {
+          this.setState({ error: error.message, result: "" });
+        }
+      });
+  }
+
+Page - 2: 
+Since we handling error in previous example, it should display error message which tell us what error occurred. 
+
+fetchEmployees() {
+    axios
+      .get("http://localhost:2000/retreiveEmployeelist")
+      .then(response => {
+        this.setState({
+          result: response.data,
+          errorMessage: ""
+        });
+        console.log(this.state.result);
+      })
+      .catch(error => {
+        if (error.response) {
+          this.setState({
+            errorMessage: error.response.data.message,
+            result: ""
+          });
+        } else {
+          this.setState({ errorMessage: error.message, result: "" });
+        }
+      });
+  }
+
+Page - 3: 
+2. You have to make PUT request to URL: http://localhost:2000/updateEmployeeDetails/:id with data in below format:
+
+{
+  empName: "",
+  age: "",
+  achievements: "",
+  salary: ""
+}
+ 
+
+3. In PUT request, send empID which already exist in URl parameter and editable details into body of request. Write a method updateEmployee() in component which make a PUT request to backend.
+
+updateEmployee = () => {
+    var formJSON = {
+      empId: this.props.match.params.empId,
+      empName: this.state.empName,
+      age: this.state.age,
+      salary: this.state.salary,
+      achievements: this.state.achievements
+    };
+    axios
+      .put(
+        "http://localhost:2000/updateEmployeeDetails/" +
+        this.props.match.params.empId,
+        formJSON
+      )
+      .then(response => {
+        this.setState({ successMessage: response.data.message, error: "" });
+      })
+      .catch(error => {
+        if (error.response) {
+          this.setState({ error: error.response.data.message, success: "" });
+        } else {
+          this.setState({ error: error.message, success: "" });
+        }
+      });
+  };
+It will take form data into JSON format and make a PUT request.
+
+ 
+
+4. Validation and form will be similar to previous POST demo which you have seen earlier. Complete code of EditEmployee is given below, it has to be written in file src/components/EditEmployee.js:
+
+import React from "react";
+import axios from "axios";
+class EditEmployee extends React.Component {
+  state = {
+    empName: "",
+    age: "",
+    salary: "",
+    achievements: "",
+    formErrors: {
+      empNameErr: "",
+      empAgeErr: ""
+    },
+    fieldValidity: {
+      empName: false,
+      age: false
+    },
+    formValid: false,
+    successMessage: ""
+  };
+  validateName = e => {
+    const name = e.target.value;
+    var formErrors = this.state.formErrors;
+    var fieldValidity = this.state.fieldValidity;
+    this.setState({ empName: e.target.value });
+    if (name.length < 6) {
+      formErrors.empNameErr = "Name must be at least 6 chars";
+      fieldValidity.empName = false;
+    } else {
+      formErrors.empNameErr = "";
+      fieldValidity.empName = true;
+    }
+    this.setState({ fieldValidity: fieldValidity });
+    this.setState({ formValid: fieldValidity.empName && fieldValidity.age });
+  };
+  validateAge = e => {
+    const age = e.target.value;
+    this.setState({ age: age });
+    var formErrors = this.state.formErrors;
+    var fieldValidity = this.state.fieldValidity;
+    if (age < 18 || age > 60) {
+      formErrors.empAgeErr = "Age must be between 18 and 60";
+      fieldValidity.age = false;
+    } else {
+      formErrors.empAgeErr = "";
+      fieldValidity.age = true;
+    }
+    this.setState({ formErrors: formErrors });
+    this.setState({ formValid: fieldValidity.empName && fieldValidity.age });
+  };
+  validateSalary = e => {
+    let salary = e.target.value;
+    this.setState({ salary: salary });
+  };
+  validateAchievements = e => {
+    let achievements = e.target.value;
+    this.setState({ achievements: achievements });
+  };
+  updateEmployee = () => {
+    var formJSON = {
+      empId: this.props.match.params.empId,
+      empName: this.state.empName,
+      age: this.state.age,
+      salary: this.state.salary,
+      achievements: this.state.achievements
+    };
+    axios
+      .put(
+        "http://localhost:2000/updateEmployeeDetails/" +
+        this.props.match.params.empId,
+        formJSON
+      )
+      .then(response => {
+        this.setState({ successMessage: response.data.message, error: "" });
+      })
+      .catch(error => {
+        if (error.response) {
+          this.setState({ error: error.response.data.message, success: "" });
+        } else {
+          this.setState({ error: error.message, success: "" });
+        }
+      });
+  };
+  render() {
+    return (
+      <div style={{ width: 500, margin: "0px auto" }}>
+        <h3 className="text-center">
+          The selected ID is {this.props.match.params.empId}
+        </h3>
+        <form>
+          <div className="form-group">
+            <label>Employee Id:</label>
+            <input
+              className="form-control"
+              disabled
+              value={this.props.match.params.empId}
+            />
+          </div>
+          <div className="form-group">
+            <label>Name:</label>
+            <input
+              className="form-control"
+              onChange={this.validateName}
+              value={this.state.empName}
+            />
+          </div>
+          <span className="text-danger">
+            {this.state.formErrors.empNameErr}
+          </span>
+          <div className="form-group">
+            <label>Age:</label>
+            <input
+              className="form-control"
+              onChange={this.validateAge}
+              value={this.state.age}
+            />
+          </div>
+          <span className="text-danger">{this.state.formErrors.empAgeErr}</span>
+          <div className="form-group">
+            <label>Salary:</label>
+            <select
+              onChange={this.validateSalary}
+              className="form-control"
+              value={this.state.salary}
+            >
+              <option value="20000">20000</option>
+              <option value="30000">30000</option>
+              <option value="40000">40000</option>
+              <option value="50000">50000</option>
+            </select>
+          </div>
+          <div className="form-group">
+            <label>Achievements:</label>
+            <textarea
+              onChange={this.validateAchievements}
+              className="form-control"
+              value={this.state.achievements}
+            />
+          </div>
+          <button
+            type="button"
+            onClick={this.updateEmployee}
+            className="btn btn-success"
+            disabled={!this.state.formValid}
+          >
+            Update
+          </button>
+          <br />
+          <span className="text-success">{this.state.successMessage}</span>
+        </form>
+      </div>
+    );
+  }
+}
+export default EditEmployee;
+
+Page - 4: 

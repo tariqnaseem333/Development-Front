@@ -1,0 +1,13 @@
+var grossSalary = 50000;
+
+// function scope
+function calculateSalary() {
+  var netSalary = grossSalary - 1800;
+}
+// console.log(netSalary); //error
+
+// hoisting -> able to access varaible before declaration
+console.log(name); //undefined
+var name = 'Martin';
+
+console.log(age); //error, since age isn't defined

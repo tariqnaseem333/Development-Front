@@ -1,0 +1,22 @@
+{
+  "name": "Sample_Tool",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --detectOpenHandles  --json --outputFile=result.json --forceExit",
+    "coverage": "jest --coverage"
+  },
+  "devDependencies": {
+    "jest": "^23.6.0",
+    "jest-json-reporter": "^1.2.2"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "child-process-promise": "^2.2.1",
+    "jquery": "^3.4.1",
+    "sinon": "^7.5.0"
+  }
+}

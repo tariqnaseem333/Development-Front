@@ -1,0 +1,17 @@
+const empData = {
+  name: 'Jack Smith',
+  age: 25,
+  grossSalary: 25000,
+  calculateNetSal() {
+    return this.grossSalary - 2500 + ' is the net salary';
+  }
+}
+
+const fruitsList = ['apple', 'banana'];
+
+console.log(empData);
+console.log(empData.calculateNetSal());
+
+console.log(fruitsList);
+console.log(fruitsList[0], fruitsList[fruitsList.length - 1]);
+console.log(fruitsList[10000]);

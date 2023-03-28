@@ -1,0 +1,52 @@
+body {
+    background-color: rgb(235, 206, 211);
+}
+
+.content {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+}
+
+#alignDiv {
+    margin-left: 100px;
+}
+
+/* Do the necessary styling here */
+
+
+
+/* Code your card here  */
+.card {
+    /* Apply appropriate box shadow property */
+    /* Provide padding of 16px;
+    Background color needs to be '#f1f1f1'
+    Text should be aligned in center 
+    Transition of 0.3s has to be provided */
+}
+
+
+
+/* Use suitable pseudo class to provide hover effect to the card */
+.card {
+    /* Change the box shadow property to some suitable value when user hover the card */
+}
+
+/* Style the image according to give requirements */
+img {
+    /* Provide width of image to be 100% */
+}
+
+/* Style the h1 selector as per below mentioned requirements */
+h1 {
+    /* Align the content to center using suitable css property */
+}
+
+
+ /* Code the required media query here as per given requirements 
+1)Change margin-left to 0px in id alignDiv
+2)Change the appropriate font color & background color of card and body
+3)Provide the necessary styling to class content , to make it appear as per given image 
+4)Make font size of 20px for p tag  */
+
+

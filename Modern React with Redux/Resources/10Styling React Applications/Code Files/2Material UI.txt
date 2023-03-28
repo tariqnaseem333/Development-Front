@@ -1,0 +1,448 @@
+Page - 3: 
+1. Create a new React application named muidemo
+
+create-react-app muidemo
+2. Install material-ui and material-ui icons using the below commands
+
+npm install material-ui/core --save
+npm install @material-ui/icons --save
+ 
+
+3. Create a components folder inside src folder of the application. Then, create a JavaScript file named Register.js inside /src/components folder.
+
+4. Copy the below code in Register.js file
+
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import FormControl from '@material-ui/core/FormControl';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import Input from '@material-ui/core/Input';
+import InputLabel from '@material-ui/core/InputLabel';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import TextField from '@material-ui/core/TextField';
+import withStyles from '@material-ui/core/styles/withStyles';
+const styles = theme => ({
+    main: {
+      width: 'auto',
+      display: 'block', // Fix IE 11 issue.
+      marginLeft: theme.spacing.unit * 3,
+      marginRight: theme.spacing.unit * 3,
+      [theme.breakpoints.up(400 + theme.spacing.unit * 3 * 2)]: {
+        width: 400,
+        marginLeft: 'auto',
+        marginRight: 'auto',
+      },
+    },
+    paper: {
+      marginTop: theme.spacing.unit * 8,
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme.spacing.unit * 3}px`,
+    },
+    avatar: {
+      margin: theme.spacing.unit,
+      backgroundColor: theme.palette.secondary.main,
+    },
+    form: {
+      width: '100%', // Fix IE 11 issue.
+      marginTop: theme.spacing.unit,
+    },
+    submit: {
+      marginTop: theme.spacing.unit * 3,
+    },
+    root: {
+        display: 'flex',
+      },
+      formControl: {
+        margin: theme.spacing.unit * 3,
+      },
+      group: {
+        width: 'auto',
+        height: 'auto',
+        display: 'flex',
+        flexWrap: 'nowrap',
+        flexDirection: 'row',
+    },
+    left : {
+        alignItems: 'left',
+    }
+  });
+  
+export class Register extends Component {
+    
+    constructor() {
+        super();
+        this.state = {
+            form: { fname: "", lname: "", emailId: "", password: "", username: "", contactNo: "", gender: "" ,travelDate:"" },
+            value1: null, checkbox: false, loadPackage: false
+        };
+    }
+    handleChange = (event) => {
+        const target = event.target;
+        const value = target.value;
+        const name = target.name;
+        const { form } = this.state;
+        this.setState({
+            form: { ...form, [name]: value }
+        });
+    }
+    onCheck = () => {
+        if (this.state.checkbox === true) this.setState({ checkbox: false })
+        else this.setState({ checkbox: true })
+    }
+    handleSubmit = (e) => { e.preventDefault(); this.setState({ loadPackage: true }) }
+    render() {
+        const { classes } = this.props;
+        if (this.state.loadPackage === true) return <Redirect to='/packages' />
+        return (
+            <main className={classes.main}>
+      <CssBaseline />
+      <Paper className={classes.paper}>
+        <Typography component="h1" variant="h5">
+        Register For Travel Package
+        </Typography>
+        <form className={classes.form} onSubmit={this.handleSubmit}>
+          
+          <FormControl margin="normal" required fullWidth>
+              <InputLabel  htmlFor="fname" >First Name</InputLabel>
+              <Input id="fname" name="fname" 
+              autoFocus value={this.state.form.fname} 
+              onChange={this.handleChange} />
+              </FormControl>
+              <FormControl margin="normal" required fullWidth>
+              <InputLabel  htmlFor="lname" >Last Name</InputLabel>
+              <Input id="lname" name="lname"  
+               value={this.state.form.lname} 
+              onChange={this.handleChange} />
+              </FormControl>
+              <FormControl margin="normal" required fullWidth>
+                <InputLabel htmlFor="emailId">Email Address</InputLabel>
+                <Input id="emailId" name="emailId"  
+                value={this.state.form.emailId} onChange={this.handleChange}/>
+            </FormControl>
+          <FormControl margin="normal" required fullWidth>
+            <InputLabel htmlFor="pswd">Password</InputLabel>
+            <Input name="password" type="password" id="pswd" value={this.state.form.pswd} onChange={this.handleChange} />
+          </FormControl>
+            <FormControl margin="normal" required fullWidth>
+            <InputLabel>Gender</InputLabel><br></br><br></br>
+          <RadioGroup 
+            aria-label="Gender"
+            name="gender"
+            value={this.state.form.gender}
+            onChange={this.handleChange}
+            className={classes.group}
+          >
+            <FormControlLabel  value="female" control={<Radio color="primary"/>} label="Female" />
+            <FormControlLabel value="male" control={<Radio color="primary"/>} label="Male" />
+          </RadioGroup>
+          </FormControl>
+          <FormControl margin="normal" required fullWidth>
+          {/* <InputLabel htmlFor="travelDate">Date of travel</InputLabel> */}
+          <TextField id="travelDate" label="Date of travel*" type="date" 
+          InputLabelProps={{ shrink: true,}} onChange={this.handleChange} 
+           ></TextField>
+          </FormControl>
+          <br></br>
+          
+            <FormControl margin="normal" required fullWidth>
+        <FormControlLabel
+          control={
+            <Checkbox
+              name="checkbox" value="" onChange={this.onCheck} id="upcmgpckge"
+              checked={this.state.checkbox} color="primary" />
+          }
+          label="Keep me updated with the upcoming packages"
+        />
+            </FormControl>
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+          >
+            Register
+          </Button>
+        </form>
+      </Paper>
+    </main>
+        )
+    }
+}
+Register.propTypes = {
+    classes: PropTypes.object.isRequired,
+  };
+  
+export default withStyles(styles)(Register);
+// export default Register;
+ 
+
+5. Create a JavaScript file named Packages.js inside /src/components folder and copy the below code.
+
+import React, { Component } from 'react';
+import singapore from '../assets/singapore.jpg';
+import ladakh from '../assets/ladakh.jpg'
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+import Card from '@material-ui/core/Card';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
+import red from '@material-ui/core/colors/red';
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Rating from 'material-ui-rating';
+import Snackbar from '@material-ui/core/Snackbar';
+const styles = theme => ({
+    card: {
+        maxWidth: 400,
+    },
+    media: {
+        height: 0,
+        paddingTop: '56.25%', // 16:9
+    },
+    actions: {
+        display: 'flex',
+    },
+    expand: {
+        transform: 'rotate(0deg)',
+        marginLeft: 'auto',
+        transition: theme.transitions.create('transform', {
+            duration: theme.transitions.duration.shortest,
+        }),
+    },
+    expandOpen: {
+        transform: 'rotate(180deg)',
+    },
+    avatar: {
+        backgroundColor: red[500],
+    },
+    snackbartext : {
+        color : 'white',
+        size : '20px'
+    }
+});
+export class Packages extends Component {
+    constructor() {
+        super();
+        this.state = {
+            open: false,
+            showComp : false
+        }
+    }
+    handleClickOpen = () => {
+        this.setState({showComp:false, open: true });
+    };
+    handleClose = () => {
+        this.setState({showComp:false, open: false });
+    };
+    onClick = (event) => { 
+        this.setState({ showComp: true }) 
+    };
+    onHide = (event) => { this.setState({ showComp: false, open : false }) }
+    handleCloseforSnackbar = (event, reason) => {
+        
+        this.setState({ open : false})
+    }
+    render() {
+        const { classes } = this.props;
+        return (
+            <div> <br />
+                <Grid container spacing={16} direction="row">
+                    <Grid item sm={1}></Grid>
+                    <Grid item sm={5}>
+                        <Card className={classes.card}>
+                            <CardMedia
+                                className={classes.media}
+                                image={singapore}
+                                title="Singapore"
+                            />
+                            <CardContent>
+                                <Typography gutterBottom variant="h5" component="h2">
+                                    Singapore Trip
+          </Typography>
+                                6Days/6Nights
+<Rating value={4} max={5} />
+                                <Button variant="contained" color="primary" onClick={this.handleClickOpen}>
+                                    Trip Details
+        </Button>
+                                <Dialog
+                                    open={this.state.open}
+                                    onClose={this.handleClose}
+                                    aria-labelledby="alert-dialog-title"
+                                    aria-describedby="alert-dialog-description"
+                                >
+                                    <DialogTitle id="alert-dialog-title" >{"Trip Details"}</DialogTitle>
+                                    <DialogContent>
+                                        <DialogContentText id="alert-dialog-description">
+                                            This is complete a travel package that includes travelling expenses, food and stay for the given period.
+            </DialogContentText>
+                                    </DialogContent>
+                                    <DialogActions>
+                                        <Button variant="outlined" onClick={this.onClick} color="primary" autoFocus>
+                                            Travel
+            </Button>
+            {this.state.showComp ?
+           <Snackbar
+           anchorOrigin={{
+             vertical: 'top',
+             horizontal: 'center',
+           }}
+           open={this.state.open}
+           autoHideDuration={3000}
+           onClose={this.handleCloseforSnackbar}
+           ContentProps={{
+             'aria-describedby': 'message-id',
+           }}
+           message={<span id="message-id"><Typography className={classes.snackbartext} >Your Trip is booked</Typography></span>}
+         /> :
+           null
+        }
+                
+        <Button variant="outlined" onClick={this.onHide} color="primary" >Cancel </Button>
+        </DialogActions>
+</Dialog>
+</CardContent>
+</Card>
+                    </Grid>
+                    <Grid item sm={1}></Grid>
+                    <Grid item sm={5}>
+                        <Card className={classes.card}>
+                            <CardMedia
+                                className={classes.media}
+                                image={ladakh}
+                                title="Ladakh"
+                            />
+                            <CardContent>
+                                <Typography gutterBottom variant="h5" component="h2">
+                                    Ladakh Trip
+          </Typography>
+                                5Days/5Nights
+<Rating value={5} max={5} />
+                                <Button variant="contained" color="primary" onClick={this.handleClickOpen}>
+                                    Trip Details
+        </Button>
+                                <Dialog
+                                    open={this.state.open}
+                                    onClose={this.handleClose}
+                                    aria-labelledby="alert-dialog-title"
+                                    aria-describedby="alert-dialog-description"
+                                >
+                                    <DialogTitle id="alert-dialog-title">{"Trip Details"}</DialogTitle>
+                                    <DialogContent>
+                                        <DialogContentText id="alert-dialog-description">
+                                            This is complete a travel package that includes travelling expenses, food and stay for the given period.
+            </DialogContentText>
+                                    </DialogContent>
+                                    <DialogActions>
+                                        <Button onClick={this.onClick} color="primary" autoFocus>
+                                            Travel </Button>
+                                        <Button onClick={this.onHide} color="primary" >
+                                            Cancel
+            </Button>
+                                    </DialogActions>
+                                </Dialog>
+                            </CardContent>
+                        </Card>
+                    </Grid>
+                </Grid>
+            </div>
+        )
+    }
+}
+Packages.propTypes = {
+    classes: PropTypes.object.isRequired,
+};
+export default withStyles(styles)(Packages);
+ 
+
+6.  Finally, copy the below code in App.js file of muidemo application.
+
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import Register from './components/Register';
+import Packages from './components/Packages';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+import Link from '@material-ui/core/Link';
+import './App.css';
+const styles = theme => ({
+  link : {
+    margin: theme.spacing.unit,
+    color:'white',
+  },  
+  active : {
+    color:'white',
+    '&:hover': {
+      color:'white',    
+    },
+  }
+});
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+    }
+  }
+  render() {
+    const { classes } = this.props
+    const home ="http://localhost:3000/"
+    const packages = "http://localhost:3000/packages"
+    return (
+      <React.Fragment>
+      <Router>
+        <React.Fragment>
+        <AppBar position="static">
+        <Toolbar>
+<Grid justify="space-between" container  spacing={24}>
+      <Grid item>
+        <Typography variant="title" gutterBottom  >
+        <Link href={home} className={classes.active} >
+          Travel Package!
+          </Link>
+          
+        </Typography>
+      </Grid>
+      <Grid item>
+      <Typography variant="title" gutterBottom  >
+          <Link href={packages} className={classes.active} >
+          Packages
+          </Link>
+          </Typography>
+      </Grid>
+</Grid>
+        </Toolbar>
+      </AppBar>
+      <Switch>
+          <Route exact path="/packages" component={Packages} />
+          <Route exact path="/" component={Register} />
+        </Switch>
+        </React.Fragment>
+      </Router>     
+      </React.Fragment>
+    );
+  }
+}
+App.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+export default withStyles(styles)(App);
+// export default App;

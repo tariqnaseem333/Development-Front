@@ -1,0 +1,12 @@
+body {
+   
+    background-image: url("../src/assets/background.jpg");
+    background-size: 100%;
+    background-repeat:no-repeat; 
+  }
+  label{
+      font-weight: bold;
+  }
+  
+  
+  

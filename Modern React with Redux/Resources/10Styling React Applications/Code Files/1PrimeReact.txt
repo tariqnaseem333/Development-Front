@@ -1,0 +1,222 @@
+1. Create a new React application named primereactdemo
+
+create-react-app primereactdemo
+ 
+
+2. Install primereact and primeicons using the below commands
+
+npm install primereact --save
+npm install primeicons --save
+ 
+
+3. Configure primereact into the application by copying the following code into index.js file
+
+import 'primereact/resources/themes/nova-light/theme.css';
+import 'primereact/resources/primereact.min.css';
+import 'primeicons/primeicons.css';
+ 
+
+4. Create a components folder inside src folder of the application. Then, create a JavaScript file named named register.js inside /src/components folder
+
+ 
+
+5. Copy the below code in register.js file
+
+import React, { Component } from 'react';
+import { Card } from 'primereact/card';
+import { Redirect } from 'react-router-dom';
+import { InputText } from 'primereact/inputtext';
+import { Password } from 'primereact/password';
+import { Button } from 'primereact/button';
+import { RadioButton } from 'primereact/radiobutton';
+import { Checkbox } from 'primereact/checkbox';
+export class Register extends Component {
+    constructor() {
+        super();
+        this.state = {
+            form: { fname: "", lname: "", emailId: "", password: "", username: "", contactNo: "", gender: "" },
+            value1: null, checkbox: false, loadPackage: false
+        };
+    }
+    handleChange = (event) => {
+        const target = event.target;
+        const value = target.value;
+        const name = target.name;
+        const { form } = this.state;
+        this.setState({
+            form: { ...form, [name]: value }
+        });
+    }
+    onCheck = () => {
+        if (this.state.checkbox === true) this.setState({ checkbox: false })
+        else this.setState({ checkbox: true })
+    }
+    handleSubmit = (e) => { e.preventDefault(); this.setState({ loadPackage: true }) }
+    render() {
+        if (this.state.loadPackage === true) return <Redirect to='/packages' />
+        return (
+            <div><br />
+                <div className="container-fluid">
+                    <div className="row">
+                        <div className="col-md-6 offset-3">
+                            <div className="content-section implementation">
+                                <Card title="Register For Travel Package">
+                                    <form onSubmit={this.handleSubmit}>
+                                        <div className="row">
+                                            <div className="col-md-5 offset-1">
+                                                <label htmlFor="fname">First Name:</label>
+                                                <InputText size="31" name="fname" id="fname" type="text" value={this.state.form.fname} onChange={this.handleChange} />
+                                            </div>
+                                            <div className="col-md-5 form-group">
+                                                <label htmlFor="lname">Last Name:</label>
+                                                <InputText size="31" name="lname" id="lname" type="text" value={this.state.form.lname} onChange={this.handleChange} />
+                                            </div>
+                                        </div>
+                                        {/* <br /> */}
+                                        <div className="row">
+                                            <div className="col-md-10 offset-1">
+                                                <label htmlFor="emailId">Email:</label>
+                                                <InputText type="email" name="emailId" id="emailId" size="70" value={this.state.form.emailId} onChange={this.handleChange} />
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div className="row">
+                                            <div className="col-md-10 offset-1">
+                                                <label htmlFor="cno">Contact No:</label>
+                                                <InputText size="70" name="contactNo" id="cno" value={this.state.form.contactNo} onChange={this.handleChange} />
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div className="row">
+                                            <div className="col-md-10 offset-1">
+                                                <label htmlFor="uname">Username:</label>
+                                                <InputText size="70" name="username" id="uname" value={this.state.form.username} onChange={this.handleChange} />
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div className="row">
+                                            <div className="col-md-10 offset-1">
+                                                <label htmlFor="pswd">Password:</label>
+                                                <Password size="70" name="password" id="pswd" value={this.state.form.password} onChange={this.handleChange} />
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div className="row">
+                                            <div className="col-md-10 offset-1">
+                                                <label>Gender:</label>
+                                                &nbsp;&nbsp;&nbsp;
+                                            <RadioButton inputId="male" name="gender" value="M" onChange={this.handleChange} checked={this.state.form.gender === 'M'} />
+                                                <label htmlFor="male" className="p-radiobutton-label"><strong>Male</strong></label>
+                                                &nbsp;&nbsp;&nbsp;
+                                            <RadioButton inputId="female" name="gender" value="F" onChange={this.handleChange} checked={this.state.form.gender === 'F'} />
+                                                <label htmlFor="female" className="p-radiobutton-label"><strong>Female</strong></label>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div className="row">
+                                            <div className="col-md-10 offset-1">
+                                                <Checkbox inputId="upcmgpckge" name="checkbox" value={true} onChange={this.onCheck} checked={this.state.checkbox}></Checkbox> {/* onChange={this.onCityChange} checked={this.state.cities.includes('true')} */}
+                                                <label htmlFor="upcmgpckge" className="p-checkbox-label"><strong>Keep me updated with the upcoming packages</strong></label>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div className="row">
+                                            <div className="col-md-12">
+                                                <div className="content-section implementation">
+                                                    <Button label="Register" className="p-button-raised p-button-success" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </Card>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+}
+export default Register;
+ 
+
+6. create a JavaScript file named packages.js inside /src/components folder and copy the below code.
+
+import React, { Component } from 'react';
+import { Card } from 'primereact/card';
+import { Button } from 'primereact/button';
+import { Dialog } from 'primereact/dialog';
+import {Rating} from 'primereact/rating';
+import singapore from '../assets/singapore.jpg';
+import ladakh from '../assets/ladakh.jpg';
+export class Packages extends Component {
+    constructor() {
+        super();
+        this.state = {
+            visible: false
+        }
+    }
+    
+    onClick = (event) => { this.setState({ visible: true }); }
+    onHide = (event) => { this.setState({ visible: false }); }
+    render() {
+        const singaporeheader = (<img alt="Card" src={singapore} />);
+        const ladakhheader = (<img alt="Card" src={ladakh} />);
+        const dialogfooter = (
+            <div>
+                <Button label="Travel" icon="pi pi-check" onClick={this.onHide} />
+                <Button label="Cancel" icon="pi pi-times" onClick={this.onHide} className="p-button-secondary" />
+            </div>
+        );
+        const footer = (
+            <span>
+                <Dialog header="Trip Details" visible={this.state.visible} width="350px" footer={dialogfooter} minY={70} onHide={this.onHide} maximizable={true}>
+                    This is complete travel package that includes travelling expenses, food and stay for the given period.</Dialog>
+                <Button label="Trip Details" icon="pi pi-external-link" onClick={this.onClick} />
+            </span>
+        );
+        return (
+            <div> <br />
+                <div className="container-fluid">
+                    <div className="row">
+                        <div className="col-md-4 offset-md-1">
+                            <Card title="Singapore Trip" subTitle="6Days/6Nights" style={{ width: '360px' }} className="ui-card-shadow" footer={footer} header={singaporeheader}>
+                                <div> <Rating value={4} readonly={true} stars={5} cancel={false} /></div>
+                            </Card>
+                        </div>
+                        <div className="col-md-4 offset-md-1">
+                            <Card title="Ladakh Trip" subTitle="5Days/5Nights" style={{ width: '360px' }} className="ui-card-shadow" footer={footer} header={ladakhheader}>
+                                <div><Rating value={3} readonly={true} stars={5} cancel={false} /></div>
+                            </Card>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+}
+export default Packages;
+ 
+
+7. Finally, copy the below code in App.js file of primereactdemo application.
+
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import Register from './components/register';
+import Packages from './components/packages';
+import './App.css';
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <Router>
+          <Switch>
+            <Route exact path="/" component={Register} />
+            <Route exact path="/packages" component={Packages} />
+          </Switch>
+        </Router>
+      </div>
+    );
+  }
+}
+export default App;

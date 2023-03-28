@@ -1,0 +1,52 @@
+Demo:
+Consider the below code: 
+
+Create a file named access_demo.html and push the below code
+<html> 
+    <head> 
+        <style> 
+        #skiplink a { 
+            position: absolute; 
+            left: -10000px; 
+            top: auto; 
+            height: 1px; 
+            width: 1px; 
+            overflow: hidden; 
+        }  
+        #skiplink a :focus { 
+            position: static; 
+            width: auto; 
+            height: auto; 
+        } 
+        a:visited { 
+            color: purple; 
+        } 
+        div { 
+            border: 2px solid black; 
+            font-family: Arial, Helvetica, sans-serif;         
+        } 
+        #indiagate { 
+            border: 10px solid brown;     
+        } 
+        h1 { 
+            color: orange; 
+        } 
+        h2 { 
+            color: green; 
+        } 
+    </style> 
+    </head> 
+    <body> 
+      <div> 
+        <div id = "skiplink"><a href = "#content">Skip to main content</a></div> 
+        <h1>Republic Day Parade</h1> 
+        <h2><em>New Delhi</em></h2>       
+        <img id = "indiaGate" src = "indiaGate.PNG" alt = "daytime India Gate picture" height="400px" width = "300px"> 
+        <div id = "content">Every year a prominent leader is invited to attend the biggest parade of our nation. 
+            This year to mark the event The President of Brazil <strong>Mr. Jair Bolsonaro</strong> was invited to attend  
+            the 71<sup>st</sup> <time datetime="2020-02-26">Republic Day Parade.</time><br> 
+        To know more about Republic Day Parade visit <a href = "https://en.wikipedia.org/wiki/Delhi_Republic_Day_parade" title = "Interesting Facts about Republic day Parade">Wikipedia</a> 
+        </div>          
+       </div> 
+    </body> 
+</html> 

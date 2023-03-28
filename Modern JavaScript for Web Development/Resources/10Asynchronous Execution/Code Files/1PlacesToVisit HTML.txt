@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="./placesToVisit.js"></script>
+    <title>placesToVisit</title>
+</head>
+<body>
+    <button onclick="placesToVisit()">Get Destinations</button>
+    <div id="places"></div>
+</body>
+</html>

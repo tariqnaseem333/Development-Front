@@ -1,0 +1,62 @@
+Exercise 1:
+
+<div class="container"> 
+    <div class="item">A</div> 
+    <div class="item">B</div> 
+    <div class="item">C</div> 
+</div>
+
+.container{ 
+    /* display:  */ 
+    border: 1px solid black; 
+} 
+.item{ 
+    margin: 5px; 
+    height: 40px; 
+    width: 40px; 
+    border: 1px solid; 
+} 
+
+***********************************************************************************************************************
+Exercise 2:
+
+<div class="container"> 
+    <div class="item">A</div> 
+    <div class="item">B</div> 
+    <div class="item">C</div> 
+</div>
+
+
+.container{ 
+    /* display: ; */ 
+    /* flex-direction: ; */
+    border: 1px solid black; 
+} 
+.item{ 
+    margin: 5px; 
+    height: 40px; 
+    width: 40px; 
+    border: 1px solid; 
+} 
+
+***********************************************************************************************************************
+Exercise 3:
+
+<div class="container"> 
+    <span class="item">A</span> 
+    <span class="item">B</span> 
+    <span class="item">Cascading <br>Style <br>Sheets</span> 
+</div> 
+
+.container{ 
+    display: flex; 
+    border: 1px dashed black; 
+    /* align-items: ; */ 
+    /* justify-content: ; */ 
+} 
+.item{ 
+    margin: 5px; 
+    border: 1px solid; 
+} 
+
+

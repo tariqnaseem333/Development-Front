@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pseudo- Anchor</title>
+  <style>
+    .navbar {
+      overflow: hidden;
+      background-color: #e9e9e9;
+    }
+    a:link {
+      float: left;
+      display: block;
+      color: azure;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+    a:hover {
+      background-color: rgb(160, 155, 155);
+      color: black;
+    }
+    .search {
+      float: right;
+      margin-top: 12px;
+      margin-right: 10px;
+    }
+    input[type=text] {
+      font-size: 17px;
+      border: none;
+      background-color: #e9e9e9;
+      border-bottom: 1px solid black;
+    }
+    input:focus {
+      border: none;
+      outline: none;
+      border-bottom: 1px solid black;
+    }
+    button {
+      background-color: rgb(105, 105, 228);
+      color: whitesmoke;
+      font-size: 17px;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: rgb(62, 62, 238);
+    }
+  </style>
+</head>
+<body>
+    <nav class="navbar">
+      <a href="">Home</a>
+      <a href="">About</a>
+      <a href="">Contact Us</a>
+      <div class="search">
+        <form>
+          <input type="text" placeholder="Search.." name="search">
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </nav>
+</body>
+</html>

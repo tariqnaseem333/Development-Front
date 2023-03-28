@@ -1,0 +1,17 @@
+<html>
+<head><title>DOM sample</title></head>
+<body>
+    <form id="login">
+        Username:<input type="text" id="username" placeholder="Enter your username"><br>
+        Password:<input type="password" id="password" maxlength="10" onblur="display()"><br>
+    </form>
+    <script>
+    function display(){
+        console.log(document.getElementById("username").getAttribute("placeholder"));
+        console.log(document.getElementById("password").value)
+        //All elements are also stored as arrays. We can also access based on the index position.
+        console.log(document.forms[0].elements[1].getAttribute("maxlength"))
+    }
+    </script>
+</body>
+</html>

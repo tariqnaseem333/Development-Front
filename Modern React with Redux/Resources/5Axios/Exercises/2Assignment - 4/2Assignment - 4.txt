@@ -1,0 +1,28 @@
+A POST request with the data as shown below, should be made at the back-end url path (http://localhost:4000/books):
+
+{
+      "title": "<<user-input>>",
+      "author": "<<user-input>>",
+      "genre": "<<user-input>>",
+      "summary": "<<user-input>>",
+}
+
+The db.json file has the initial records in db as shown below:
+
+{
+  "books": [
+    {
+      "title": "Origins",
+      "author": "Dan Brown",
+      "genre": "Medical thriller",
+      "summary": "The fifth installment in the Robert Langdon series",
+      "id": 1001
+    },
+    {
+      "title": "Crisis",
+      "author": "Robin Cook",
+      "genre": "Mystery thriller",
+      "summary": "The terrifying story of a doctor who is the victim of a medical malpractise crisis",
+      "id": 1002
+    }]
+}

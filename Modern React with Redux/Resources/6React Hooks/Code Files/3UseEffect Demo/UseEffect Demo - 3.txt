@@ -1,0 +1,34 @@
+Demo steps
+
+1. Modify the Sample.js file as shown below
+
+import {useState, useEffect} from 'react';
+import "bootstrap/dist/css/bootstrap.min.css"
+function Sample() {
+  const [name,setName] = useState("Jack")
+  const [age,setAge] = useState(20)
+  useEffect(()=>{
+    console.log("use Effect called")
+  },[age])
+  return (
+    <div>
+      <h1>Your Name is: {name}</h1><br/>
+      <h1>Your Age is: {age} </h1><br/>
+      <button className="btn btn-primary" onClick={()=>setName("Tom")}>Update Name</button>&nbsp;&nbsp;
+      <button className="btn btn-primary" onClick={()=>setAge(age+1)}>Increment Age</button>
+    </div>
+  );
+}
+export default Sample;
+2. Render the Sample component within index.js 
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import Sample from './Sample';
+import reportWebVitals from './reportWebVitals';
+ReactDOM.render(
+    <Sample />,
+  document.getElementById('root')
+);
+​​​​​​​​​​​​​​reportWebVitals();

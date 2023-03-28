@@ -1,0 +1,151 @@
+Step 1: Create a file 'parentComponent.js' and copy the below code in it.
+
+import React, { Component } from 'react';
+import Child from './ChildComponent';
+class Parent extends Component {
+    action = "Waving";
+    render() {
+        return (
+            <div>
+                <h2 className="text-primary">I am a Parent Component</h2>
+                <Child action={this.action} />
+            </div>
+        );
+    }
+}
+export default Parent;
+Step 2: Create a file 'childComponent.js' and copy the below code in it.
+
+ 
+
+Page - 1: 
+import React, { Component } from 'react';
+class Child extends Component {
+    /*
+        constructor(props) {
+            super(props);
+        }
+    */
+    // The above constructor is default constructor
+    // hence no need to add it
+    render() {
+        return (
+            <h3 className="text-success">My parent is {this.props.action} at me!</h3>
+        );
+    }
+}
+export default Child;
+Step 3: Copy the below code in index.js.
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Parent from './ParentComponent';
+ReactDOM.render(<Parent/>, document.getElementById('root'));
+
+Page - 2: 
+Step 1: Modify the Employee.js component to have only the render method and access the relevant data from props as shown below:
+
+import React from "react"
+class Employee extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            buttonClicked: false
+        }
+    }
+    render() {
+        var note = null;
+        var achievements=null;
+        if (this.props.emp.age < 25) {
+            note = <span className="text-info"> - Fresher</span>
+        }
+        if(this.state.buttonClicked){
+          achievements=this.props.emp.achievements;
+        }
+        
+        return (
+            <div className="card" style={{ "width": 200 }}>
+                <img className="card-img-top" src={this.props.emp.image} height="200" alt="Card image cap" />
+                <div className="card-body">
+                    <h5 className="card-title text-center">{this.props.emp.empName}</h5>
+                    <p className="card-text">
+                        <span>Id: {this.props.emp.empId}</span><br />
+                        <span>Age: {this.props.emp.age}</span> {note}<br />
+                        <span>Salary: {this.props.emp.salary}</span><br />
+                    </p>
+                    <p><i>{achievements}</i></p>
+                    <button type="button" className="btn btn-primary">Edit</button> <button className="btn btn-success" onClick={() => {
+                        this.setState({ buttonClicked: true });
+                    }}>View</button>
+                </div>
+            </div>
+        )
+    }
+}
+export default Employee;
+Observe that:
+
+The employee data is coming from the parent component and not stored in its own state
+
+We need not check which employee Id was selected as each component displays only one employee detail.
+
+The event of one component will not affect the other. Therefore onClick() of the button, we just setting the status of buttonClicked to true, by which the if statement evaluates and displays the achievements.
+
+ 
+
+Step 2: Modify the App.js so that the array of employee objects is stored here and sent as props to the Employee component which is getting nested in it, as shown below:
+
+import React, { Component } from 'react';
+import './App.css';
+import Employee from './components/Employee';
+class App extends Component {
+  constructor() {
+    super();
+    const emp1 = {
+      "empId": 100,
+      "empName": "Jack",
+      "age": 30,
+      "salary": 50000,
+      "image": "emp1.png",
+      "achievements": "Has got 3 bravo awards and 1 MVP award. Has worked on cutting edge technologies as well"
+    }
+    const emp2 = {
+      "empId": 101,
+      "empName": "Jane",
+      "age": 24,
+      "salary": 40000,
+      "image": "emp2.png",
+      "achievements": "No major achievements so far"
+    }
+    this.empArr = [emp1, emp2]
+  }
+  render() {
+    return (
+      <div>
+      <h3 className="text-center text-primary">Employee Details</h3>
+        {this.empArr.map(emp => <Employee key={emp.empId} emp={emp}/>)}
+      </div>
+    );
+  }
+}
+export default App;
+
+Observe that:
+
+Employee is a nested component here
+
+For each employee object in the array, it is going to create a Employee component
+
+Each Employee component is customized by passing emp object as props
+
+ 
+
+Step 3: Modify the index.js so that instead of rendering the <Employee/> it renders the <App/> as shown below:
+
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import "bootstrap/dist/css/bootstrap.css";
+import App from "./App";
+ReactDOM.render(<App/>, document.getElementById('root'));

@@ -1,0 +1,15 @@
+<html> 
+  <head>
+     <style> 
+       p { 
+         Font-size: x-large; 
+         Margin: 20px 100px; 
+         Padding: 20px 150px 80px; 
+         Border: 25px solid navy; 
+        } 
+     </style> 
+  </head> 
+  <body> 
+    <p> What you are reading is the content portion which is covered inside a box which have a fixed border, fixed padding and a margin. You can observe the spacings very clearly. </p> 
+  </body> 
+</html> 

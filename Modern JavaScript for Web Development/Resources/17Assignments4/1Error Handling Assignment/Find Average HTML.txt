@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+   function find_average(markList){
+     total=0;
+     for(let i=0;i<markList.length;i++){
+        total+=markList[i]
+	      marksAvg=total/markList.length
+     }
+     return marksAvg
+   }
+mlist=[1,2,3,4]
+console.log("Average marks:", find_average(mlist))
+</script>
+</head>
+</body>
+</html>

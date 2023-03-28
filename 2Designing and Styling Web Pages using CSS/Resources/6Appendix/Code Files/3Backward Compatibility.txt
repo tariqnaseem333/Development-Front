@@ -1,0 +1,76 @@
+Page - 1: 
+Add the below given code to sample.html file 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backward Compatibility </title>
+    <style>
+        .container {
+            margin: 20px;
+            display: flex;
+            flex-direction: row-reverse;
+            border: 1px solid;
+            background-color: purple;
+            padding: 10px;
+        }
+        .item {
+            margin: 10px;
+            background-color: white;
+            color: purple;
+            height: 50px;
+            width: 50px;
+            font-size: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Backward Compatibility</h1>
+    <div class="container">
+        <div class="item">A</div>
+        <div class="item">B</div>
+        <div class="item">C</div>
+    </div>
+</body>
+</html>
+
+Page - 4: 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backward Compatibility </title>
+    <style>
+        .container {
+            margin: 20px;
+            display: flex;
+            display: ms-flexbox;
+            flex-direction: row-reverse;
+            border: 1px solid;
+            background-color: purple;
+            padding: 10px;
+        }
+        .item {
+            margin: 10px;
+            background-color: white;
+            color: purple;
+            height: 50px;
+            width: 50px;
+            font-size: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Backward Compatibility</h1>
+    <div class="container">
+        <div class="item">A</div>
+        <div class="item">B</div>
+        <div class="item">C</div>
+    </div>
+</body>
+</html>
+

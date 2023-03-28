@@ -1,0 +1,618 @@
+Page - 2: 
+Let's create a component which makes GET request to URL "http://localhost:2000/retreiveEmployeelist" and display data received from web service.
+
+import React, { Component } from "react";
+import axios from "axios";
+class AppComp extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      result: ""
+    };
+    this.fetchEmployees = this.fetchEmployees.bind(this);
+  }
+  componentDidMount() {
+    this.fetchEmployees();
+  }
+  fetchEmployees() {
+    axios
+      .get("http://localhost:2000/retreiveEmployeelist")
+      .then(response => {
+        this.setState({
+          result: response.data,
+          error: ""
+        });
+      });
+  }
+  render() {
+    const { result } = this.state;
+    return (
+      <div>
+        <div className="row">
+          <div className="col-8 offset-2">
+            <h3>Employee Data:</h3>
+            <br />
+            {result ? <Table list={result} /> : null}
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+const Table = ({ list }) => (
+  <table className="table table-striped">
+    <thead>
+      <tr>
+        <th>Employee Id</th>
+        <th>Employee Name</th>
+        <th>Age</th>
+        <th>Employee Achievement</th>
+        <th>Employee Salary</th>
+      </tr>
+    </thead>
+    <tbody>
+      {list.map(item => (
+        <tr key={item.empId}>
+          <td>
+            <span>{item.empId}</span>
+          </td>
+          <td>
+            <span>{item.empName}</span>
+          </td>
+          <td>
+            <span>{item.age}</span>
+          </td>
+          <td>
+            <span>{item.achievements}</span>
+          </td>
+          <td>
+            <span>{item.salary}</span>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+);
+export default AppComp;
+
+Page - 4: 
+ 3. Import Axios in Card component as given:
+
+import axios from "axios";
+ 
+
+4. In the Card component, define result and error variable in your state. Here result will store all employee details and error will store any errors we get while sending the request.
+
+constructor() {
+    super();
+    this.state = {
+      result: "",
+      errorMessage: ""
+    };
+    this.fetchEmployees = this.fetchEmployees.bind(this);
+  }
+ 
+
+5. Write a method fetchEmployees() and make a GET request to get all employee details using Axios:
+
+fetchEmployees() {
+    axios
+      .get("http://localhost:2000/retreiveEmployeelist")
+      .then(response => {
+        this.setState({
+          result: response.data,
+          errorMessage: ""
+        });
+        console.log(this.state.result);
+      })
+      .catch(error => {
+        if (error.response) {
+          this.setState({
+            errorMessage: error.response.data.message,
+            result: ""
+          });
+        } else {
+          this.setState({ errorMessage: error.message, result: "" });
+        }
+      });
+}
+If the GET request is resolved successfully, update result state with response data and update error state as empty string.
+
+In case the request throws an error, update error state with error message and result state with empty string.
+
+ 
+
+6. Invoke above method on componentDidMount() so that it get called as soon as component loads.
+
+componentDidMount() {
+    this.fetchEmployees(); 
+}
+Note: Since we want fetchEmployees() data be to loaded when component loads, we have to invoke it inside componentDidMount(), otherwise this data will not load when component will load. componentDidMount() gets invoked as soon as component loads and this is the reason we should invoke fetchEmployees() inside componentDidMount(). 
+
+ 
+
+7. Add routing and Navbar in src/app.js:
+
+import React, { Component } from "react";
+import { Route, Redirect, Switch, Link } from "react-router-dom";
+import EditEmployee from "./components/EditEmployee";
+import AddEmployee from "./components/AddEmployee";
+import Card from "./components/Card";
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+          <span className="navbar-brand">HR Portal</span>
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <Link className="nav-link" to="/addEmployee">
+                Add Employee
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/card">
+                View Employees
+              </Link>
+            </li>
+          </ul>
+        </nav>
+        <Switch>
+          <Route exact path="/" render={() => <Redirect to="/card" />} />
+          <Route path="/card" component={Card} />
+          <Route path="/addEmployee" component={AddEmployee} />
+          <Route path="/edit/:empId" component={EditEmployee} />
+        </Switch>
+      </div>
+    );
+  }
+}
+export default App;
+ 
+
+8. Display result state value in a table with proper format. Paste given below code in src/components/card.js:
+
+import React from "react";
+import Employee from "./Employee";
+import axios from "axios";
+export default class Card extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      result: "",
+      errorMessage: ""
+    };
+    this.fetchEmployees = this.fetchEmployees.bind(this);
+  }
+  componentDidMount() {
+    this.fetchEmployees();
+  }
+  fetchEmployees() {
+    axios
+      .get("http://localhost:2000/retreiveEmployeelist")
+      .then(response => {
+        this.setState({
+          result: response.data,
+          errorMessage: ""
+        });
+        console.log(this.state.result);
+      })
+      .catch(error => {
+        if (error.response) {
+          this.setState({
+            errorMessage: error.response.data.message,
+            result: ""
+          });
+        } else {
+          this.setState({ errorMessage: error.message, result: "" });
+        }
+      });
+  }
+  render() {
+    return (
+      <div>
+        <h3 className="text-center text-primary">Employee Details</h3>
+        <div className="row">
+          {this.state.result
+            ? this.state.result.map(emp => <Employee key={emp.empId} emp={emp} />)
+            : null}
+        </div>
+        {this.state.errorMessage ? (
+          <h4 className="text-danger">{this.state.errorMessage}</h4>
+        ) : null}
+      </div>
+    );
+  }
+}
+ 
+
+9. Let's create a component Employee which will display employee detail. Inside src/components/Employee.js, paste following code.
+
+import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
+class Employee extends Component {
+  constructor() {
+    super();
+    this.state = {
+      achievements: null,
+      edit: null
+    };
+  }
+  edit = () => {
+    this.setState({ edit: true });
+    console.log(this.state.edit);
+  };
+  render() {
+    var note = null;
+    var redirect = null;
+    if (this.props.emp.age < 25) {
+      note = <span className="text-info"> - Fresher</span>;
+    }
+    if (this.state.edit) {
+      redirect = <Redirect to={"/edit/" + this.props.emp.empId} push />;
+    }
+    return (
+      <div className="card" style={{ width: 200 }}>
+        <img
+          className="card-img-top"
+          src={require("../assets/Jill.jpg")}
+          height="200"
+          alt="profile pic"
+        />
+        <div className="card-body">
+          <h5 className="card-title text-center">{this.props.emp.empName}</h5>
+          <p className="card-text">
+            <span>Id: {this.props.emp.empId}</span>
+            <br />
+            <span>Age: {this.props.emp.age}</span> {note}
+            <br />
+            <span>Salary: {this.props.emp.salary}</span>
+            <br />
+          </p>
+          <p>
+            <i>{this.state.achievements}</i>
+          </p>
+          <button type="button" className="btn btn-primary" onClick={this.edit}>
+            Edit
+          </button>{" "}
+          <button
+            className="btn btn-success"
+            onClick={() => {
+              this.setState({ achievements: this.props.emp.achievements });
+            }}
+          >
+            View
+          </button>
+          {redirect}
+        </div>
+      </div>
+    );
+  }
+}
+export default Employee;
+
+Page - 5: 
+Demosteps:
+
+1. Download and run backend express application given in previous demo.
+
+ 
+
+2. You have to make post request to URL: http://localhost:2000/InsertEmployee with data in below format:
+
+{
+  empId: "",
+  empName: "",
+  achievements: "",
+  age: "",
+  salary: ""
+}
+ 
+
+3. Create a new file src/components/AddEmployee.js and create new component AddEmployee. Import React and axios.
+
+import React, { Component } from "react";
+import axios from "axios";
+ 
+
+4. Create following state inside AddEmployee, formErrors - to store form error messages, successMessage - for success message. as given below:
+
+state = {
+    empId: "",
+    empName: "",
+    age: "",
+    salary: "",
+    achievements: "",
+    formErrors: {
+      empNameErr: "",
+      empAgeErr: ""
+    },
+    fieldValidity: {
+      empName: false,
+      age: false
+    },
+    formValid: false,
+    successMessage: ""
+  };
+ 
+
+5. Create a method addEmployee() which will make a POST request to url along with form data, axios.post(url, data) will be used to perform POST request, where first parameter will be url and second paramenter will be data, as given below:
+
+addEmployee = () => {
+    var formJSON = {
+      empName: this.state.empName,
+      age: this.state.age,
+      salary: this.state.salary,
+      achievements: this.state.achievements
+    };
+    axios
+      .post("http://localhost:2000/InsertEmployee/", formJSON)
+      .then(response => {
+        this.setState({ successMessage: response.data.message, error: "" });
+        console.log(response.data);
+      })
+      .catch(error => {
+        if (error.response) {
+          this.setState({ error: error.response.data.message, success: "" });
+        } else {
+          this.setState({ error: error.message, success: "" });
+        }
+      });
+  };
+If request is resolved successfully, set state of success to success message and if request did not get successful, set state of error with an error message as shown in above code.
+
+ 
+
+6. Create validation methods which will validate input fields and set error messages if validation fails. 
+
+validateName = e => {
+    const name = e.target.value;
+    var formErrors = this.state.formErrors;
+    var fieldValidity = this.state.fieldValidity;
+    this.setState({ empName: e.target.value });
+    if (name.length < 6) {
+      formErrors.empNameErr = "Name must be at least 6 chars";
+      fieldValidity.empName = false;
+    } else {
+      formErrors.empNameErr = "";
+      fieldValidity.empName = true;
+    }
+    this.setState({ fieldValidity: fieldValidity });
+    this.setState({ formValid: fieldValidity.empName && fieldValidity.age });
+  };
+  validateAge = e => {
+    const age = e.target.value;
+    this.setState({ age: age });
+    var formErrors = this.state.formErrors;
+    var fieldValidity = this.state.fieldValidity;
+    if (age < 18 || age > 60) {
+      formErrors.empAgeErr = "Age must be between 18 and 60";
+      fieldValidity.age = false;
+    } else {
+      formErrors.empAgeErr = "";
+      fieldValidity.age = true;
+    }
+    this.setState({ formErrors: formErrors });
+    this.setState({ formValid: fieldValidity.empName && fieldValidity.age });
+  };
+  validateSalary = e => {
+    let salary = e.target.value;
+    this.setState({ salary: salary });
+  };
+  validateAchievements = e => {
+    let achievements = e.target.value;
+    this.setState({ achievements: achievements });
+  };
+It will also set value to state field.
+
+ 
+
+7. Create a proper form inside render() method as shown below:
+
+render() {
+    return (
+      <div style={{ width: 500, margin: "0px auto" }}>
+        <h3 className="text-center">Add Employee</h3>
+        <form>
+          <div className="form-group">
+            <label>Name:</label>
+            <input
+              className="form-control"
+              onChange={this.validateName}
+              value={this.state.empName}
+            />
+          </div>
+          <span className="text-danger">
+            {this.state.formErrors.empNameErr}
+          </span>
+          <div className="form-group">
+            <label>Age:</label>
+            <input
+              className="form-control"
+              onChange={this.validateAge}
+              value={this.state.age}
+            />
+          </div>
+          <span className="text-danger">{this.state.formErrors.empAgeErr}</span>
+          <div className="form-group">
+            <label>Salary:</label>
+            <select
+              onChange={this.validateSalary}
+              className="form-control"
+              value={this.state.salary}
+            >
+              <option value="20000">20000</option>
+              <option value="30000">30000</option>
+              <option value="40000">40000</option>
+              <option value="50000">50000</option>
+            </select>
+          </div>
+          <div className="form-group">
+            <label>Achievements:</label>
+            <textarea
+              onChange={this.validateAchievements}
+              className="form-control"
+              value={this.state.achievements}
+            />
+          </div>
+          <button
+            type="button"
+            onClick={this.addEmployee}
+            className="btn btn-success"
+            disabled={!this.state.formValid}
+          >
+            Add Employee
+          </button>
+          <br />
+          <span className="text-success">{this.state.successMessage}</span>
+        </form>
+      </div>
+    );
+  }
+Also display proper error and success message.
+
+ 
+
+8. Complete code is given below, It should be written in src/components/AddEmployee.js:
+
+import React, { Component } from "react";
+import axios from "axios";
+class AddEmployee extends Component {
+  state = {
+    empId: "",
+    empName: "",
+    age: "",
+    salary: "",
+    achievements: "",
+    formErrors: {
+      empNameErr: "",
+      empAgeErr: ""
+    },
+    fieldValidity: {
+      empName: false,
+      age: false
+    },
+    formValid: false,
+    successMessage: ""
+  };
+  validateName = e => {
+    const name = e.target.value;
+    var formErrors = this.state.formErrors;
+    var fieldValidity = this.state.fieldValidity;
+    this.setState({ empName: e.target.value });
+    if (name.length < 6) {
+      formErrors.empNameErr = "Name must be at least 6 chars";
+      fieldValidity.empName = false;
+    } else {
+      formErrors.empNameErr = "";
+      fieldValidity.empName = true;
+    }
+    this.setState({ fieldValidity: fieldValidity });
+    this.setState({ formValid: fieldValidity.empName && fieldValidity.age });
+  };
+  validateAge = e => {
+    const age = e.target.value;
+    this.setState({ age: age });
+    var formErrors = this.state.formErrors;
+    var fieldValidity = this.state.fieldValidity;
+    if (age < 18 || age > 60) {
+      formErrors.empAgeErr = "Age must be between 18 and 60";
+      fieldValidity.age = false;
+    } else {
+      formErrors.empAgeErr = "";
+      fieldValidity.age = true;
+    }
+    this.setState({ formErrors: formErrors });
+    this.setState({ formValid: fieldValidity.empName && fieldValidity.age });
+  };
+  validateSalary = e => {
+    let salary = e.target.value;
+    this.setState({ salary: salary });
+  };
+  validateAchievements = e => {
+    let achievements = e.target.value;
+    this.setState({ achievements: achievements });
+  };
+  addEmployee = () => {
+    var formJSON = {
+      empName: this.state.empName,
+      age: this.state.age,
+      salary: this.state.salary,
+      achievements: this.state.achievements
+    };
+    axios
+      .post("http://localhost:2000/InsertEmployee/", formJSON)
+      .then(response => {
+        this.setState({ successMessage: response.data.message, error: "" });
+        console.log(response.data);
+      })
+      .catch(error => {
+        if (error.response) {
+          this.setState({ error: error.response.data.message, success: "" });
+        } else {
+          this.setState({ error: error.message, success: "" });
+        }
+      });
+  };
+  render() {
+    return (
+      <div style={{ width: 500, margin: "0px auto" }}>
+        <h3 className="text-center">Add Employee</h3>
+        <form>
+          <div className="form-group">
+            <label>Name:</label>
+            <input
+              className="form-control"
+              onChange={this.validateName}
+              value={this.state.empName}
+            />
+          </div>
+          <span className="text-danger">
+            {this.state.formErrors.empNameErr}
+          </span>
+          <div className="form-group">
+            <label>Age:</label>
+            <input
+              className="form-control"
+              onChange={this.validateAge}
+              value={this.state.age}
+            />
+          </div>
+          <span className="text-danger">{this.state.formErrors.empAgeErr}</span>
+          <div className="form-group">
+            <label>Salary:</label>
+            <select
+              onChange={this.validateSalary}
+              className="form-control"
+              value={this.state.salary}
+            >
+              <option value="20000">20000</option>
+              <option value="30000">30000</option>
+              <option value="40000">40000</option>
+              <option value="50000">50000</option>
+            </select>
+          </div>
+          <div className="form-group">
+            <label>Achievements:</label>
+            <textarea
+              onChange={this.validateAchievements}
+              className="form-control"
+              value={this.state.achievements}
+            />
+          </div>
+          <button
+            type="button"
+            onClick={this.addEmployee}
+            className="btn btn-success"
+            disabled={!this.state.formValid}
+          >
+            Add Employee
+          </button>
+          <br />
+          <span className="text-success">{this.state.successMessage}</span>
+        </form>
+      </div>
+    );
+  }
+}
+export default AddEmployee;

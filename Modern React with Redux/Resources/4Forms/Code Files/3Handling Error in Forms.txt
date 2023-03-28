@@ -1,0 +1,87 @@
+Page - 1: 
+This is illustrated in the below code:
+
+class HelloComp extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      txtUsername: "Infosys",
+      formErrors: {
+          txtUsernameErr:'' 
+            },
+      fieldValidity: {
+            txtUsername: false
+            },
+      formValid: false
+    };
+   }
+    ValidateUsername = (event) => {
+      const name = event.target.value;
+      var formErrors = this.state.formErrors;
+      var fieldValidity = this.state.fieldValidity;
+      this.setState({txtUsername:event.target.value});
+      if (name.length < 5) {
+        formErrors.txtUsernameErr = "Cannot be less than 5";
+        fieldValidity.txtUsername = false;
+      } else {
+        formErrors.txtUsernameErr = "";
+        fieldValidity.txtUsername = true;
+      }
+      this.setState({ formErrors: formErrors });
+      this.setState({ formValid: fieldValidity.txtUsername})
+    };
+  render() {
+    return (
+      <form>
+        <input type="text" name="txtUsername" value={this.state.txtUsername}
+          onChange={this.ValidateUsername}
+        />
+        <div id="errorMsg">{this.state.formErrors.txtUsernameErr}</div>
+      </form>
+    );
+  }
+}
+
+Page - 2: 
+This is illustrated in the below code:
+
+class HelloComp extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      txtUsername: "Infosys",
+      formErrors: {}
+    };
+    this.validate = event => {
+      if (Object.keys(this.state.formErrors).length> 0) {
+        event.preventDefault();
+      }
+    };
+    this.getName = event => {
+      this.setState({ txtUsername: event.target.value });
+      var formErrorsCopy = this.state.formErrors;
+      if (event.target.value.length < 5) {  
+        formErrorsCopy.txtUsername = "Cannot be less than 5";
+      } else {
+        delete formErrorsCopy["txtUsername"];
+      }
+      this.setState({ formErrors: formErrorsCopy});
+    };
+  }
+  render() {
+    return (
+      <form onSubmit={this.validate}>
+        <input
+          type="text"
+          name="txtUsername"
+          value={this.state.txtUsername}
+          onChange={this.getName}
+        />
+        <div id="errorMsg">{this.state.formErrors.txtUsername}</div>
+        <button type="submit" className="btn btn-primary">
+          Login
+        </button>
+      </form>
+    );
+  }
+}

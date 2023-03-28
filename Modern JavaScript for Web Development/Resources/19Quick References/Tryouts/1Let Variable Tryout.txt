@@ -1,0 +1,15 @@
+var alpha = 1; // bad practice to use var
+if (true) {
+  alpha += 1;
+}
+
+let beta = 1; // good, use the let.
+if (true) {
+  beta += 1;
+}
+
+{
+  let gamma = 'a'
+}
+
+console.log(gamma) //error, since let is block scoped

@@ -1,0 +1,17 @@
+html{
+    background-image: linear-gradient(to right,pink,lightgreen);
+    font-size: 10px;
+}
+.parent{
+    font-size: 15px;
+    }
+.emUnit{
+    border : 2px solid brown;
+    font-size: 2em; 
+    width : 50vw;  
+}
+.remUnit{
+    border : 2px solid green;
+    font-size: 2rem; 
+    width : 50vw;  
+}

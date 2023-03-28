@@ -1,0 +1,110 @@
+Page - 1: 
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .card, img { /* Setting the height and width of card and image */
+      width: 200px;
+      height: 200px;
+    }
+    .card-inner {
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 1s; /*setting the duration of transformation i.e. rotation*/
+      transform-style: preserve-3d; /* preserving the 3d transformation */
+    }
+    .card:hover .card-inner { /* Roatates the card on hover */
+      transform: rotateY(180deg);
+    }
+    .card-front, .card-back { /* ,(comma)-> applies styling to both selectors(card-front and card-back) */
+      font-size: small;
+      position: absolute; /*Overlap card-front and card-back*/
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden; /*hiding the back side of the card-front and card-back*/
+    }
+    .card-back {
+      background-color: #1976d2;
+      color: white;
+      transform: rotateY(180deg); /*rotates the card-back card on load in Y direction*/
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="card-inner">
+      
+<div class="card-front">
+        <img src="./images/John.png" alt="Avatar">
+      </div>
+      
+<div class="card-back">
+        <h1>Jack Williams</h1>
+        <p>UI/UX Designer</p>
+        <p>Passionate , Enthusiastic, Hard Worker</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+Page - 2: 
+
+<html >
+<head>
+    <title>Document</title>
+    <style>
+        .card {
+            color: white;
+            background-color: #212121;
+            width: 300px;
+            padding: 5px;
+            height: 40px;
+            border-radius: 3px;
+            overflow: hidden;/* To hide the text which overflows */
+            transition-property: all;
+            transition-duration: 0.5s;
+            transition-timing-function: linear;
+            transition-delay: 0.2s;/* Transition starts after 0.1 second on hover */
+            text-align: center;
+        }
+        .card:hover {
+            height: 80px;
+            box-shadow: 5px 3px 10px 5px gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <p>Wanna know something. Then hover here</p>
+        <b>Transition is awesome 😀</b>
+    </div>
+    </div>
+</body>
+</html>
+
+Page - 3: 
+
+<html>
+<head>
+    <style>
+        img {
+            border-radius: 3px;
+            animation: fade 1s;
+        }
+        @keyframes fade {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <img src="./images/John.png" alt="Avatar" height="200" width="200">
+</body>
+</html>
+ 

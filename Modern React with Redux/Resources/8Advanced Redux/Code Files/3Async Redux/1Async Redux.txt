@@ -1,0 +1,169 @@
+Page - 5: 
+// an Async Action Creator
+export function getAllBook_AsyncActionCreator() {
+  return (dispatch) => {
+    return getAllBooksAPI()
+      .then((data) => {
+        dispatch(getAllBooks(data));
+        // can dispatch more pure actions if required
+      });
+  };
+}
+// a Pure Action Creator
+export function getAllBooks(books) {
+  return {
+    type: GET_ALL_BOOKS,
+    books,
+  }
+}
+
+
+Page - 6: 
+In the applyMiddleware(), we can now add one more middleware as shown below:
+
+/* middlewares - logger */
+import thunk from 'redux-thunk' // importing Thunk
+import logger from './logger' 
+import { applyMiddleware } from 'redux'
+export default applyMiddleware(
+  thunk, // Using thunk - will always be the first middleware
+  logger, // will always be the last middleware, just before the Action hits the Reducer
+)
+
+
+Page - 7: 
+Step 1: Observe the Actions inside - src/actions/index.js.
+
+export const GET_ALL_BOOKS = 'GET_ALL_BOOKS'
+export const ADD_A_BOOK = 'ADD_A_BOOK'
+export const SET_SELECTED_BOOK = 'SET_SELECTED_BOOK'
+export const UPDATE_BOOK_DETAILS = 'UPDATE_BOOK_DETAILS'
+export const ASYNC_ACTION = 'ASYNC_ACTION'
+export const getAllBooksAPI = () => new Promise((res) => {
+  const dataList = [{
+    title: "Crisis3",
+    author: "Robin Cook",
+    genre: "Mystery thriller",
+    summary: "The terrifying story of a doctor who is the victim of a medical malpractise crisis",
+    id: 1004
+  }, {
+    title: "Crisis4",
+    author: "Robin Cook",
+    genre: "Mystery thriller",
+    summary: "The terrifying story of a doctor who is the victim of a medical malpractise crisis",
+    id: 1005
+  }];
+  setTimeout(() => {
+    res(dataList);
+  }, 3000);
+})
+export function addABook(newBook) {
+  return {
+    type: ADD_A_BOOK,
+    newBook,
+  }
+}
+export function setSelectedBook(selectedBook) {
+  return {
+    type: SET_SELECTED_BOOK,
+    selectedBook,
+  }
+}
+export function updateSelectedBook(updatedBook) {
+  return {
+    type: UPDATE_BOOK_DETAILS,
+    updatedBook,
+  }
+}
+export function getAllBook_AsyncActionCreator() {
+  return (dispatch) => {
+    getAllBooksAPI()
+      .then((data) => {
+        dispatch(getAllBooks(data));
+      });
+  };
+}
+export function getAllBooks(books) {
+  return {
+    type: GET_ALL_BOOKS,
+    books,
+  }
+}
+ 
+
+Step 2: Modify the App.js in src/components/App.js
+
+import React, { Component, Fragment } from 'react'
+import { BrowserRouter as Router, Route, Switch, Link, Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { getAllBooks, getAllBook_AsyncActionCreator, getAllBooksAPI } from '../actions'
+import './App.css';
+import AddBook from "./AddBook";
+import ViewAllBooks from "./ViewAllBooks";
+class App extends Component {
+  // componentDidMount = () => {
+  //   getAllBooksAPI()
+  //     .then((books) => {
+  //       this.props.dispatch(getAllBooks(books));
+  //     })
+  //     .catch(() => {
+  //       alert('An error occured. Try again.')
+  //     })
+  // }
+  componentDidMount=()=> {
+    this.props.dispatch(getAllBook_AsyncActionCreator());
+  }
+  render() {
+    const { books } = this.props;
+    return (
+      <Router>
+        <Fragment>
+          <nav className="navbar navbar-expand-md bg-dark navbar-dark ">
+            <div className="navbar-header">
+              <Link className="navbar-brand" to="/">Learning Portal</Link>
+            </div>
+            <ul className="navbar-nav ">
+              <li className="nav-item">
+                <Link className="nav-link" to="/card">View All Books</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/addBook">Add a Book</Link>
+              </li>
+            </ul>
+            <ul className="navbar-nav ml-auto">
+              <li className="nav-item">
+                <Link className="nav-link" to="/">We have <span className="badge badge-success"> {books.length} </span> books</Link>
+              </li>
+            </ul>
+          </nav>
+          <br />
+          <Switch>
+            <Route exact path="/card" component={ViewAllBooks} />
+            <Route path="/addBook" component={AddBook} />
+            <Route path="/**" render={() => <Redirect to="/card" />} />
+          </Switch>
+        </Fragment>
+      </Router>
+    );
+  }
+}
+function mapStateToProps({ books }) {
+  return {
+    books,
+  }
+}
+export default connect(mapStateToProps)(App);
+ 
+
+Step 3: Modify the index.js file of the middlewares inside - src/middlewares/index.js
+
+/**
+* middlewares - logger and thunk
+*/
+import logger from './logger'
+import thunk from 'redux-thunk'
+import { applyMiddleware } from 'redux'
+export default applyMiddleware(
+  thunk, // will always be the first middleware
+  logger, // will always be the last middleware, just before the Action hits the Reducer
+) 

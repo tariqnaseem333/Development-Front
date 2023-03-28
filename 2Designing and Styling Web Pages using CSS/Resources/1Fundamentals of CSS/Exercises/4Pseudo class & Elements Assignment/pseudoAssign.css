@@ -1,0 +1,107 @@
+* {
+    box-sizing: border-box
+}
+
+/* Set style for buttons */
+.successBtn {
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    cursor: pointer;
+    background-color: green;
+    border: none;
+    width: 100%
+}
+
+/* Style the input form fields */
+input[type=text],
+input[type=password],
+input[type=email] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+input[type=checkbox]+label {
+    color: grey;
+    font-style: italic;
+}
+form {
+    width: 500px;
+}
+
+
+/* On hover, color of button should change to rgb(2, 66, 2), Use required pseudo class for it */
+.successBtn {
+    /* Provide appropriate background color as mentioned above to button */
+}
+
+
+
+
+/* Set styles for link  */
+a {
+    color: darkblue;
+    /* Remove any sort of underline appearing for link */
+}
+
+
+
+
+/* Use appropriate css pseudo class and css properties to get the required styling */
+a {
+    /* On hover the link color should change to red without any line appearing below the link */
+
+}
+
+
+
+
+
+/* First letter of text 'Signup' should appear xx-large, Use appropriate pseudo elements to achieve the necessary styling */
+h2 {
+    /* Use appropriate CSS properties to achieve the required output */
+}
+
+
+
+
+
+
+/* On click/focus of input elements given below metioned styling should be activated*/
+/* Use appropriate pseudo classes to achieve the required output */
+input[type=text],
+input[type=password],
+input[type=email] {
+    background: #928f8f;
+    color: whitesmoke;
+    outline: none;
+}
+
+
+
+/* Once user clicks on checkbox the following css properties should be activated on label tag associated with it */
+/* Use appropriate css pseudo class and properties to achieve the required output */
+/* Use the below input tag for the same */
+input {
+    color: red;
+    font-style: normal;
+}
+
+
+
+/* Use appropriate pseudo elements to achieve the below mentioned output */
+input{
+    color: rgb(48, 46, 46)
+}
+
+
+/* Below styling will provide '*' to all the label tags in red color */
+/* Use appropriate pseudo elements to achieve the below mentioned output */
+label{
+    /* 1)Affix the * to the end of all text mentioned in label tags */
+    /* 2)Make sure color should be red */
+}

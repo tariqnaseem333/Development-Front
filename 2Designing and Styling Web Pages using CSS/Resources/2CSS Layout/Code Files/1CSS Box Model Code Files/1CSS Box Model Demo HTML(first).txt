@@ -1,0 +1,15 @@
+<html> 
+  <head> 
+    <style> 
+  * { 
+    Border: 2px solid black; 
+    } 
+    </style> 
+  </head> 
+  <body> 
+   <h1> Hi! I’m enclosed in a big Box. </h1> 
+   <div> This is your <div> CSS <i>Box Model</i></div> 
+   </div><br/><br/> 
+   <p>We can clearly observe that each element is wrapped inside a box. </p> 
+  </body> 
+</html> 

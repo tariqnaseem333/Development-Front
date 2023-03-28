@@ -1,0 +1,28 @@
+Demo steps
+
+1. Create Sample.js file within src folder and write the following code
+
+import React, {useState} from 'react';
+function Sample() {
+  const [name,setName] = useState("Jack")
+  return (
+    <div>
+      Your Name is: {name}
+      <button onClick={()=>setName("Jill")}>Change</button>
+    </div>
+  );
+}
+export default Sample;
+
+2. Render the Sample component within index.js 
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import * as serviceWorker from './serviceWorker';;
+import Sample from './Sample';
+ReactDOM.render(<Sample />, document.getElementById('root'));
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();

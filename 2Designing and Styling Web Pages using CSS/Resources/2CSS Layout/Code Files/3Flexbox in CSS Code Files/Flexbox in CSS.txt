@@ -1,0 +1,340 @@
+Add the below given code in flexbox.html file
+<html> 
+  <head> 
+    <style> 
+     /* write your logic here */ 
+    </style> 
+  </head> 
+  <body> 
+    <h1>This is your Heading</h1> 
+    <p>This is a paragraph</p> 
+    <p>This is one more paragraph</p> 
+  </body> 
+</html> 
+
+**************************************************************************************************************
+
+Add the below given code in flexbox.css file
+
+.container{
+    padding: 10px;
+    border: 2px solid black;
+    background-color: blueviolet;
+}
+.items{
+    background-color: white;
+    padding: 10px;
+    color: blueviolet;
+    border: 2px solid black;
+    text-align: center;
+    font-size: 30px;
+    margin: 10px;
+    
+}
+
+
+**************************************************************************************************************
+
+Add the following style for the container class
+
+.container{
+    padding: 10px;
+    border: 2px solid black;
+    background-color: blueviolet;
+    display: flex;
+}
+
+
+
+**************************************************************************************************************
+
+Add the following code into flex.html
+
+<div class="container"> 
+         <div class="items">A</div> 
+         <div class="items">B</div> 
+         <div class="items">C</div> 
+</div> 
+
+Add the following code into flex.css 
+
+.container{ 
+    padding: 10px; 
+    border: 2px solid black; 
+    background-color: blueviolet; 
+    display: flex; 
+} 
+.items{ 
+    background-color: white; 
+    padding: 10px; 
+    color: blueviolet; 
+    border: 2px solid black; 
+    margin: 5px; 
+    font-size: 30px; 
+    height: 30px; 
+} 
+
+ Consider the below given HTML and CSS codes 
+
+<div style="border : 1px solid black; width: 500PX;">CSS - Cascading Style Sheets  
+        It is a markup language used to enhance the UI and UX of web pages.  
+        Modern web apps heavily rely on CSS or CSS based frameworks to make web pages  
+        more appealing to users  
+        Frameworks like <span class="apply">Bootstrap</span>, <span class="apply">Foundation</span>, Pure, Bulma, Milligram and so on are  
+        all built on the foundation setup by CSS   
+</div>
+
+
+span.apply {  
+    display: block;   
+    padding: 5px;  
+    border: 1px solid blue;    
+    background-color: yellow;  
+  height: 40px;
+  width: 100px; 
+  }  
+
+Consider the below given HTML and CSS codes 
+
+<div style="border : 1px solid black; width: 500PX;">CSS - Cascading Style Sheets  
+        It is a markup language used to enhance the UI and UX of web pages.  
+        Modern web apps heavily rely on CSS or CSS based frameworks to make web pages  
+        more appealing to users  
+        Frameworks like <span class="apply">Bootstrap</span>, <span class="apply">Foundation</span>, Pure, Bulma, Milligram and so on are  
+        all built on the foundation setup by CSS   
+</div>  
+
+span.apply {  
+    display: inline-block;  
+    padding: 5px;  
+    border: 1px solid blue;    
+    background-color: yellow;   
+  }  
+
+
+**************************************************************************************************************
+Consider the below given HTML and CSS codes to understand the flex-direction property.
+
+<div class="container"> 
+         <div class="items">A</div> 
+         <div class="items">B</div> 
+         <div class="items">C</div> 
+ </div> 
+
+.container{ 
+    padding: 10px; 
+    border: 2px solid black; 
+    background-color: blueviolet; 
+    display: flex; 
+    flex-direction: row; 
+} 
+.items{ 
+    background-color: white; 
+    padding: 10px; 
+    color: blueviolet; 
+    border: 2px solid black; 
+    margin: 5px; 
+    font-size: 30px; 
+    height: 30px; 
+} 
+
+
+
+**************************************************************************************************************
+
+Consider the below code snippets.
+
+    <div class="container">
+        <div class="items">  A </div>
+        <div class="items">  B </div>
+        <div class="items">  C </div>
+        <div class="items">  D </div>
+        <div class="items">  E </div>
+    </div>
+
+.container{ 
+    padding: 10px; 
+    border: 2px solid black; 
+    background-color: blueviolet; 
+    display:flex; 
+    flex-direction: row; 
+} 
+.items{ 
+    background-color: white; 
+    padding: 10px; 
+    color: blueviolet; 
+    border: 2px solid black; 
+    text-align: center; 
+    font-size: 30px; 
+    margin: 10px; 
+    width: 500px; 
+} 
+
+
+**************************************************************************************************************
+
+Consider the below given HTML and CSS codes to understand the flex-wrap property.
+
+<div class="container"> 
+        <div class="items">  A </div> 
+        <div class="items">  B </div> 
+        <div class="items">  C </div> 
+        <div class="items">  D </div> 
+</div> 
+
+
+.container{ 
+    padding: 10px; 
+    border: 2px solid black; 
+    background-color: blueviolet; 
+    display: inline-flex; 
+    flex-direction: row; 
+    flex-wrap: wrap; 
+} 
+.items{ 
+    background-color: white; 
+    padding: 10px; 
+    color: blueviolet; 
+    border: 2px solid black; 
+    text-align: center; 
+    font-size: 30px; 
+    margin: 10px; 
+    width: 500px; 
+} 
+
+
+Consider the below given code.
+
+    <div class="container">
+        <div class="items">  A </div>
+        <div class="items">  B </div>
+        <div class="items">  C </div>
+        <div class="items">  D </div>
+        <div class="items">  E </div>
+    </div>
+
+
+.container{ 
+    padding: 10px; 
+    border: 2px solid black; 
+    background-color: blueviolet; 
+    display:flex; 
+    flex-direction: row; 
+    flex-wrap: nowrap; 
+} 
+.items{ 
+    background-color: white; 
+    padding: 10px; 
+    color: blueviolet; 
+    border: 2px solid black; 
+    text-align: center; 
+    font-size: 30px; 
+    margin: 10px; 
+    width: 500px; 
+} 
+
+
+Consider the below code.
+
+<div class="container"> 
+        <div class="items">  A </div> 
+        <div class="items">  B </div> 
+        <div class="items">  C </div> 
+        <div class="items">  D </div> 
+</div> 
+
+
+.container{ 
+    padding: 10px; 
+    border: 2px solid black; 
+    background-color: blueviolet; 
+    display: inline-flex; 
+    flex-direction: row; 
+    flex-wrap: wrap; 
+} 
+.items{ 
+    background-color: white; 
+    padding: 10px; 
+    color: blueviolet; 
+    border: 2px solid black; 
+    text-align: center; 
+    font-size: 30px; 
+    margin: 10px; 
+    width: 500px; 
+} 
+
+
+Consider the below given code.
+
+<div class="container"> 
+        <div class="items">  A </div> 
+        <div class="items">  B </div> 
+        <div class="items">  C </div> 
+        <div class="items">  D </div> 
+        <div class="items">  E </div> 
+</div> 
+
+
+.container{ 
+    padding: 10px; 
+    border: 2px solid black; 
+    background-color: blueviolet; 
+    display: inline-flex; 
+    flex-direction: row; 
+    flex-wrap: wrap; 
+    flex-wrap: wrap-reverse; 
+} 
+.items{ 
+    background-color: white; 
+    padding: 10px; 
+    color: blueviolet; 
+    border: 2px solid black; 
+    text-align: center; 
+    font-size: 30px; 
+    margin: 10px;  
+    width: 350px; 
+} 
+
+
+**************************************************************************************************************
+
+Consider the below given HTML and CSS codes.
+
+<div class="container">  
+    <div class="items">A</div>  
+    <div class="items">B</div>  
+    <div class="items">An apple  
+        <br>a day  
+        <br>keeps  
+        <br> doctor away  
+    </div>  
+</div>
+
+
+.container {  
+    border: 1px solid black;  
+    display: inline-flex;  
+    align-items: flex-start;  
+  }
+
+
+justify-content – This property is used to align items at different parts of the container horizontally
+
+<div class="container">  
+    <div class="items">A</div>  
+    <div class="items">B</div>  
+    <div class="items">An apple  
+        <br>a day  
+        <br>keeps  
+        <br> doctor away  
+    </div>  
+</div>  
+
+.container {  
+    border: 1px solid black;  
+    display: flex;  
+    justify-content: center;  
+  }  
+
+
+**************************************************************************************************************

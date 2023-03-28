@@ -1,0 +1,38 @@
+<html>
+  <head> 
+    <title>Pseudo Classess</title> 
+    <style> 
+        input:required{ 
+            border:none; 
+            border-bottom: 1px solid black; 
+        } 
+        input:focus{ 
+            outline:none; 
+            border-bottom: 1px solid black; 
+            color:green; 
+        } 
+        input:checked + label{ 
+            color:green 
+        } 
+        input[type="radio"]:checked{ 
+            box-shadow: 1px solid black; 
+        } 
+     </style> 
+  </head> 
+  <body> 
+    <form>    
+       <div> 
+        Name: &nbsp; <input type="text" required placeholder="Enter Name"> 
+       </div> 
+       <div> 
+          Gender: 
+          <input type="radio" name="gender"> 
+          <label for="m">Male</label> 
+          <input type="radio" name="gender" > 
+          <label for="f">Female</label> 
+      </div> 
+      <div> 
+      </div> 
+    </form> 
+</body> 
+</html> 

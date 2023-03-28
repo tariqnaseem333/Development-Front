@@ -1,0 +1,11 @@
+let empName = 'John Doe';
+let salary = 25000;
+let isPermanant = true;
+let skills;
+let unknown = null;
+
+console.log(typeof empName);
+console.log(typeof salary);
+console.log(typeof isPermanant);
+console.log(typeof skills);
+console.log(typeof null);

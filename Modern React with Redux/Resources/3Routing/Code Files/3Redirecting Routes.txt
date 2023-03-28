@@ -1,0 +1,24 @@
+Let look at the App component present inside the App.js file.
+
+// other imports...
+import { Link, Route, Redirect } from 'react-router-dom';
+class App extends React.Component {
+    render() {
+        return (
+            <React.Fragment>
+                <nav>
+                    <Link to={'/home'}> Home </Link><br />
+                    <Link to={'/news-feed'}> News feed </Link><br />
+                    <Link to={'/contact'}> Contact </Link><br />
+                </nav>
+                <div>
+                    <Route exact path="/" render={() => (<Redirect to="/home">)} />
+                    <Route path="/home" component={Home}/>
+                    <Route path="/news-feed" component={NewsFeed}/>
+                    <Route path="/contact" render={() => <h3>Contact Us</h3>}/>
+                </div>
+            </React.Fragment>
+        );
+    }
+}
+export default App;

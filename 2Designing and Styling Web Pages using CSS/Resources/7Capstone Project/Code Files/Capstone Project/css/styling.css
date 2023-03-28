@@ -1,0 +1,78 @@
+
+body{
+	/* Add image link for background image (bg.jpg)  */
+	/* Make the background no repeat */
+	/* Make the background size as cover */
+	/* Provide width and height as 100% */
+}
+
+#para{
+	/* Font size should be 20px */
+	/* Add animation of name (auditionAnimation) with duration as 4s with linear timing function and infinite iteration count */
+}
+
+@keyframes auditionAnimation {
+	/* Provide animation as follows
+    0%	- color - white
+    33% - color - lawngreen; transform: scale(1.1)
+    66% - color - red
+    100% - color - yellow 
+	*/
+}
+
+img:hover{
+	/* It should transform of scale 1.02 */
+	/* Provide box shadow as white with (0px 0px 5px 5px)*/
+}
+
+img{
+	/* Provide height and width as 250px and 300px respectively */
+}
+
+
+#paragraph{
+	/* Font style should be italic */
+	/* Font weight be 500 */
+	/* Font size as 20 px */
+}
+
+#btn {
+	/* Transparent background color */
+	/* color should be black */
+}
+
+#btn:hover{
+	/* Provide background color as #007bff and color as white*/
+}
+
+
+/* ---------------------------------------------------------------------------- */
+
+/* dont remove the below code */
+
+.text-danger,.text-success,.text-primary,.text-info{
+	font-weight: 700
+}
+.card{
+	color: black;
+	text-decoration: none;
+}
+a {
+	text-decoration: none !important;
+}
+
+.toPad{	
+	padding-bottom: 2rem;
+	color: whitesmoke;
+}
+
+.bg-nav{
+	background-color: rgba(168, 37, 28, 0.925);
+  }
+.navbar-brand{
+	font-weight: 500;
+	font-size:1.25rem;
+}
+
+
+

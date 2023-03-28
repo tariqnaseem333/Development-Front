@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h4>Default Style of list</h4>
+        <ol>
+            <li>One</li>
+            <li>Two</li>
+            <li>Three</li>
+        </ol>
+        <h4>Alphabet Style of list</h4>
+        <ol type="A">
+            <li>One</li>
+            <li>Two</li>
+            <li>Three</li>
+        </ol>
+    </body>
+</html>

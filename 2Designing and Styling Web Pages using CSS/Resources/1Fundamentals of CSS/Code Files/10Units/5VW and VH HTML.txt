@@ -1,0 +1,7 @@
+<div class="vwUnit"> 
+    Art is a diverse collection of human activities in  
+    creating visual, auditory or performing artifacts  
+    (artworks), expressing the imaginative,  
+    conceptual ideas or technical skills of the performer, 
+     intended to be appreciated for their beauty or emotional power. 
+</div> 

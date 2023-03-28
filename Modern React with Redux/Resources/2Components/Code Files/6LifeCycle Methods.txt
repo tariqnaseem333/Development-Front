@@ -1,0 +1,133 @@
+Page - 1: 
+Let's consider below Educator component which uses an array of JSON data assigned to a JavaScript variable course.
+
+var course = [  {name: "Angular", educator: "Rob"},
+                {name: "ReactJS", educator: "John"},
+                {name: "Ajax", educator: "Mack"}
+            ];
+class Educator extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { courseData: course };
+    }
+    render() {
+        var users = this.state.courseData;
+        return (
+        <div>
+            <h4>UI Courses list</h4>
+            <div> {
+                users.map((userDetails)=> { 
+                    return (<div>
+                        <b>Course:</b>{userDetails.name} <br/> 
+                        <b>Educator:</b>{userDetails.educator} <br/><br/>
+                    </div>);
+                })}
+            </div>
+        </div>
+        );
+    }
+}
+export default Educator;
+
+
+
+Page - 5: 
+Step 1: Create Timer.js as shown below:
+
+import React from 'react';
+class Timer extends React.Component {
+    constructor(props) {
+        super(props);
+        this.start = this.start.bind(this);
+        this.state = { secondsElapsed: 0 };
+    }
+    start() {
+        this.setState({ secondsElapsed: this.state.secondsElapsed + 1 });
+    }
+    componentWillMount() {
+        alert('Component mounted');
+    }
+    componentDidMount() {
+        setInterval(this.start, 1000);
+    }
+    render() {
+        return (<div>
+            <h2>Seconds Elapsed: {this.state.secondsElapsed}</h2>
+        </div>);
+    }
+}
+export default Timer;
+ 
+
+Step 2: Create index.js as shown below:
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Timer from './Timer';
+ReactDOM.render(<Timer />, document.getElementById('root')); //usage without props being passed
+
+Page - 6: 
+Step 1: Create a javascript file called Educator.js as shown below:
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+const course = [  {id: 1, name: "Angular", educator: "Rob"},
+                {id: 2, name: "ReactJS", educator: "John"},
+                {id: 3, name: "Ajax", educator: "Mack"}
+            ];
+class Educator extends React.Component {
+    state = { 
+        courseData: course, 
+        selected: false
+    };
+    constructor(props) {
+        super(props);
+        console.log("Initialization Phase: 'constructor()' executed");
+    }
+    componentWillMount = () => {
+        console.log("Mounting Phase: 'componentWillMount()' executed");  
+    }
+    
+    render = () => {
+        var users = this.state.courseData;
+        console.log("Mounting Phase: 'render()' executed");
+        return (
+        <div>
+            <h4>UI Courses list</h4>
+            <div> { 
+                users.map((userDetails)=> { 
+                    return (<div key={userDetails.id}>
+                        <b>Course: </b>{userDetails.name} <br/> 
+                        <b>Educator: </b>{userDetails.educator} <br/>
+                        <button onClick={this.clickHandler}>Details</button><br/><br/>
+                    </div>);
+                })}
+            </div>
+            <button onClick={this.exitComponent}>Exit</button>
+        </div>
+        );  
+    }
+    componentDidMount = () => {
+        console.log("Mounting Phase: 'componentDidMount()' executed");  
+    }
+    clickHandler = () => {
+        console.log("Details button is clicked, state will change...");
+        this.setState({ selected: true });
+    }
+    exitComponent = () => {
+        console.log("Exit button is clicked, component will be destroyed");
+        ReactDOM.unmountComponentAtNode(document.getElementById('root'));
+    }
+    componentWillUnmount = () => {
+        console.log("Un-Mounting Phase: 'componentWillUnmount()' executed");
+    }
+}
+export default Educator;
+Step 2: Create index.js as shown below:
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Educator from './Educator';
+ReactDOM.render(<Educator/>, document.getElementById('root')); //usage without props being passed

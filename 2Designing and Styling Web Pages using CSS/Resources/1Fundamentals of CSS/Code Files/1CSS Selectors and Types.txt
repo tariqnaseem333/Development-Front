@@ -1,0 +1,63 @@
+<html lang=”en”>
+<head>
+    <style>        
+        table,tr,td, th{ 
+            border: 2px solid black;
+            border-collapse: collapse;
+            text-align: center;
+            padding: 8px;
+        }
+        /*Element selector */
+        th{ 
+           text-transform: uppercase; 
+        }
+        /* class selector */
+        .uppercase{
+            text-transform: uppercase; 
+        }
+        .failure{
+            color: red;
+            font-weight: bold;
+        }
+        /* Id Selector */
+        #topper{
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>React/Angular(100)</th>
+            <th>Node and Express(100)</th>
+            <th>Total Marks(200)</th>
+        </tr>
+        <tr>
+            <td class=”uppercase”>John Williams</td>
+            <td>96</td>
+            <td>89</td>
+            <td id=”topper”>185</td>
+        </tr>
+        <tr>
+            <td class=”uppercase”>Jack Abraham</td>
+            <td>58</td>
+            <td>41</td>
+            <td class=”failure”>99</td>
+        </tr>
+        <tr>
+            <td class=”uppercase”>Steve Harrison</td>
+            <td>73</td>
+            <td>77</td>
+            <td>150</td>
+        </tr>
+        <tr>
+            <td class=”uppercase">Anthony Smith</td>
+            <td>44</td>
+            <td>45</td>
+            <td class="failure">89</td>
+        </tr>
+    </table>
+</body>
+</html>

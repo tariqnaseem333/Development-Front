@@ -1,0 +1,17 @@
+The HelloComp component is modified as shown below:
+
+class HelloComp extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      txtUsername: "Infosys"
+    };
+  }
+  render() {
+    return (
+      <form>
+        <input type="text" name="txtUsername" value={this.state.txtUsername} />
+      </form>
+    );
+  }
+}

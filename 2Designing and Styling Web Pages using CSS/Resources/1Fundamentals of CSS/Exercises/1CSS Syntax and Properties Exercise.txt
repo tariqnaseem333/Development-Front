@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <style>
+
+        /* Already coded for you */
+        /* Do not remove the below CSS Styling */
+        table,h3 {margin-left: auto;margin-right: auto;}
+
+
+
+
+        /* Use appropriate CSS properties to style the below mentioned selectors */
+
+        /* In below styling provide border of 1px which is solid and in black color */
+        table,td,th {}
+
+
+        /* Provide background color of white and font color to be white */
+        th {}
+
+
+        /* Provide border of 1px which is solid and in black color
+        Font style should be italic and should be aligned in center
+        Width should be 45% of the h3 element */
+        h3 {}
+
+
+        /* Provide background color of bisque */
+        body {}
+
+
+
+        /* Text should be rendere in Uppercase
+        It should be underlined
+        font color should be darkblue
+        It should be center aligned */
+        h1 {}
+
+
+
+        /* text should be center aligned */
+        p {}
+        
+    </style>
+</head>
+
+<body>
+    <!-- All the content has to be displayed in center -->
+
+
+
+    <!-- Text content  -->
+    <!-- Should be underlined and blue in color -->
+    <h1>CSS</h1>
+
+    <!-- Should be inside a box -->
+    <!-- Should appear in italics -->
+    <h3>Cascading Style Sheets</h3>
+
+    <!-- No styling -->
+    <p>Its the style sheet language use to provide styling for our applications coded in markup language</p>
+
+
+    <!-- Table displaying different terms -->
+    <!-- Content in <th> should have background as black and font color should be white -->
+    <table>
+        <thead>
+            <tr>
+                <th>CSS Terms</th>
+                <th>Definitions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Selectors</td>
+                <td>These are the html elments on which styling has to be done</td>
+            </tr>
+            <tr>
+                <td>Pseudo classes</td>
+                <td>These are used to style special state of html element</td>
+            </tr>
+            <tr>
+                <td>Media Queries</td>
+                <td>Alter arrangements for different types of media</td>
+            </tr>
+            <tr>
+                <td>Flexbox</td>
+                <td>Helps to create responsive layouts</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,217 @@
+Page - 1: 
+Open terminal and type below command inside project root directory:
+
+npm install --save-dev enzyme enzyme-adapter-react-16
+
+Create a file src/setupTests.js  and create an enzyme adapter as shown below:
+
+import { configure } from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
+ 
+configure({ adapter: new Adapter() });
+
+
+Page - 2: 
+To render component using shallow function, just pass component as a parameter to shallow function as shown below:
+
+import { shallow } from "enzyme";
+ 
+const wrapper = shallow(<App />);
+
+Page - 3: 
+Step 1: Open 'counter-test-app' created in previous demo in VSCode. Open terminal, go to 'counter-test-app' directory and run below command in terminal:
+
+npm install --save-dev enzyme enzyme-adapter-react-16 react-test-renderer
+It will install enzyme, enzyme-adapter and react-test-renderer. We need to install enzyme and enzyme adapter to use enzyme.
+
+ 
+
+Step 2: We need to setup enzyme adapter so that it can be accessible from anywhere. Create a file setupTests.js inside src/ directory. Configure enzyme adapter in src/setupTests.js as shown below:
+
+import { configure } from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
+configure({ adapter: new Adapter() });
+This will configure an enzyme adapter and it will be accessible to all test files.
+
+ 
+
+Step 3: Go to src/App.test.js file and if there is any code, delete it.
+
+Import React, App and Counter component and shallow from enzyme in src/App.test.js file.
+
+import React from "react";
+import { shallow } from "enzyme";
+import App, { Counter } from "./App";
+We have successfully imported App, Counter and shallow.
+
+ 
+
+Step 4: describe function is used to create a test suite in jest. It is similar to jasmine testing which you have learnt in Modern JavaScript course. describe function takes two parameter, first is an string to describe the test suite and second function is a callback function in which we will write all test cases.
+
+In src/App.test.js file, create a test suites for App component as shown below:
+
+describe("App Component", () => {
+ // test cases will be written here.
+});
+This will create a test suite to write test cases for App component. In next step, we will add test cases inside this test suite.
+
+ 
+
+Step 5: test function is used to create test cases in jest. test function takes two parameter, first parameter is a string describing the test case and second parameter is a callback function where test case will be written.
+
+In  src/App.test.js file, in describe callback function, write a test case.
+
+describe("App Component", () => {
+  test("renders the Counter wrapper", () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.find(Counter).length).toEqual(1);
+  });
+});
+Inside describe function we have created a test where we are rendering App component, finding Counter inside component and we are checking its length. Since we used Counter only once inside App component, its length should be 1.  If there will be only one Counter inside App component, this test case will pass.
+
+ 
+
+Step 6: Similar to previous step, let's write test functions for increment function as well as decrement function.
+
+In  src/App.test.js file, write test cases for increment and decrement functions.
+
+describe("App Component", () => {
+  test("increments the counter", () => {
+    const wrapper = shallow(<App />);
+    wrapper.setState({ counter: 0 });
+    wrapper.find("button.increment").simulate("click");
+    expect(wrapper.state().counter).toEqual(1);
+  });
+  test("decrements the counter", () => {
+    const wrapper = shallow(<App />);
+    wrapper.setState({ counter: 0 });
+    wrapper.find("button.decrement").simulate("click");
+    expect(wrapper.state().counter).toEqual(-1);
+  });
+});
+In both test cases, we are shallow rendering App component, setting counter state to 0, finding respective buttons for increment and decrement using selector with the help of classname. Then we are simulating a click of each button and testing the counter value.
+
+ 
+
+Step 7: Let's create a test case to check props also. In App component, we are passing counter a props to Counter component. Let's write a test case for it also.
+
+In src/App.test.js file, write test case inside describe function callback:
+
+test("passes all props to Counter wrapper", () => {
+    const wrapper = shallow(<App />);
+    let counterWrapper = wrapper.find(Counter);
+    expect(counterWrapper.props().counter).toEqual(0);
+    wrapper.setState({ counter: -1 });
+    counterWrapper = wrapper.find(Counter);
+    expect(counterWrapper.props().counter).toEqual(-1);
+});
+In this test case, we are testing props value of Counter initially and then checking it again after update counter state. 
+
+ 
+
+Step 8: src/App.test.js file after adding all above code is given below:
+
+import React from "react";
+import App, { Counter } from "./App";
+import { shallow } from "enzyme";
+describe("App Component", () => {
+  test("renders the Counter wrapper", () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.find(Counter).length).toEqual(1);
+  });
+  test("passes all props to Counter wrapper", () => {
+    const wrapper = shallow(<App />);
+    let counterWrapper = wrapper.find(Counter);
+    expect(counterWrapper.props().counter).toEqual(0);
+    wrapper.setState({ counter: -1 });
+    counterWrapper = wrapper.find(Counter);
+    expect(counterWrapper.props().counter).toEqual(-1);
+  });
+  test("increments the counter", () => {
+    const wrapper = shallow(<App />);
+    wrapper.setState({ counter: 0 });
+    wrapper.find("button.increment").simulate("click");
+    expect(wrapper.state().counter).toEqual(1);
+  });
+  test("decrements the counter", () => {
+    const wrapper = shallow(<App />);
+    wrapper.setState({ counter: 0 });
+    wrapper.find("button.decrement").simulate("click");
+    expect(wrapper.state().counter).toEqual(-1);
+  });
+});
+In this file, we have one test suite and four test cases which we have created in previous step.
+
+ 
+
+Step 9: Its time to run test cases. To run tests cases, open terminal and type below command:
+
+npm test
+
+
+Page - 7: 
+Step 1: 
+
+Go to src/App.test.js file of the previous demo and import renderer from react-test-renderer.
+
+import React from "react";
+//import { shallow } from "enzyme";
+import renderer from "react-test-renderer";
+import App, { Counter } from "./App";
+We have successfully imported renderer.
+
+ 
+
+Step 2:
+
+We will use describe function to create a new test suite and test function to create a new test case. 
+
+In src/App.test.js file, create a test suite and a new test case:
+
+describe("App Snapshot", () => {
+  test("renders", () => {
+  });
+});
+This will create a test suite along with a test case.
+
+ 
+
+Step 3:
+
+renderer.create() function is used to create snapshot. We need to convert this snapshot to JSON tree and use toMatchSnapshot() matcher.
+
+In  src/App.test.js file, in test callback function created in previous step, write a test case as shown.
+
+describe("App Snapshot", () => {
+  test("renders", () => {
+    const component = renderer.create(<App />);
+    let tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+});
+This test will create a snapshot for App component and it will be used to test snapshots of App component.
+
+ 
+
+Step 4:
+
+Similar to previous step, let's write snapshot test case for counter component.
+
+In  src/App.test.js file, write snapshot test cases for Counter component.
+
+describe("Counter Snapshot", () => {
+  test("renders", () => {
+    const component = renderer.create(<Counter counter={1} />);
+    let tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+});
+This will create a test case for counter component.
+
+ 
+
+Step 5:
+
+Let's run these two test cases for the first time. To run test cases, open terminal and type command:
+
+npm test

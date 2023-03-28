@@ -1,0 +1,123 @@
+
+
+// Create below variables and use wherever mentioned below
+// 1) Variable name: $alignValue && value : 0 
+// 2)Variable name: $lightColor && value:white
+
+
+* {
+    box-sizing: border-box;
+}
+
+//Replace zero with appropriate variable defined above with value
+body {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+}
+
+/* Column container */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.content1 img{
+    margin-left: 450px;
+}
+
+.content1 h1 {
+    margin-left: 650px;
+}
+
+.content1 h5 {
+    margin-left: 550px;
+}
+.content2 h1 {
+    margin-left: 600px;
+}
+
+.content2 h5 {
+    margin-left: 600px;
+}
+.content2 img {
+    margin-left: 540px;
+}
+
+
+// Style from here
+// TO DO STYLINGS 
+
+// Keep the below stylings of a, a.right, a.hover inside the .navbar mentioned below
+// Use appropriate SASS nestings to achieve the nesting
+// Replace the below white color with the variable defined above
+a{
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+a.right {
+    float: right;
+}
+a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+// Put the above CSS selectors-> a,a.right,a.hover inside the below .navbar class to provide nesting
+.navbar{
+    overflow: hidden;
+    background-color: #333;   
+}
+
+
+// Replace the below white color with the variable defined above
+.content{
+    flex: 70%;
+    background-color: white;
+    padding: 20px;
+}
+
+
+// Replace the below white color with the variable defined above
+.footer {
+    padding: 20px;
+    text-align: center;
+    background:black;
+    color:white;
+}
+
+
+//Replace zero with appropriate variable defined above with value 0
+.content1 p,.content2 p {
+    margin-left: 0px;
+    font-style: italic;
+    font-size: x-large;
+}
+
+
+//Replace zero with appropriate variable defined above with value 0
+@media screen and (max-width: 650px) {
+    .row {
+        flex-direction: column;
+    }
+
+    .content1 img,.content2 img  {
+        margin-left:0;
+        width: 100%;
+    }
+
+    .content1 p,.content2 p {
+        margin-left:0;
+    }
+
+    .content1 h1,.content2 h1 {
+        margin-left: 0;
+    }
+
+    .content1 h5,.content2 h5 {
+        margin-left:0;
+    }
+}

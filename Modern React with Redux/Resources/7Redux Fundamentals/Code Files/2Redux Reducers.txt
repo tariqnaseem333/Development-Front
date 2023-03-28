@@ -1,0 +1,23 @@
+For example,
+
+// can be present in reducers.js file
+​​​​import { createStore, combineReducers } from 'redux';
+ 
+const initialBookState = { accountBooks: 666666 };
+ 
+//creating a single reducer which can change the accountBooks present in initialBookState 
+export const bookReducer = (initialState = initialBookState.accountBooks, action) => {
+    
+    switch(action.type){
+        case 'BORROW':
+            let newBooksBal = initialState - action.qty;
+            return newBooksBal;
+        case 'RETURN':
+            let newBooksBal = initialState + (-(-action.qty));
+            return newBooksBal;
+        default: 
+            return initialState;              
+    }
+};
+//combining all the reducers to a single libraryReducers
+export const libraryReducers = combineReducers({accountBooks: bookReducer });

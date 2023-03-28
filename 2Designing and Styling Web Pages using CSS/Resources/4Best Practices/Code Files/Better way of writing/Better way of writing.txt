@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head><title>Register</title>
+	</head>
+	<body>
+	<form id="signup">
+		<h2>Register yourself here!</h2>
+    		<input type="email" placeholder="abc@xyz.com" required="">
+    		<input type="password" placeholder="Enter your password" required="">
+    		<input type="password" placeholder="Confirm your password" required="">
+    		<button type="submit">Sign up</button>
+	</form>
+</body>
+<style></style>
+</html>
+
+
+#signup {
+    width: 650px;
+    height: 350px;
+    margin: 100px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+ }
+#signup h2 {
+    position: relative;
+    font: italic 2em 'trebuchet MS';
+    color: black;
+    text-align: center;
+    margin: 0 0 20px;
+}
+#signup h2::before{
+    content:'<-';
+    }
+#signup h2::after{
+    content:'->';    
+}
+#signup input{
+    margin: 5px 0;
+    padding: 15px;
+    width: 100%;
+    boarder: 1px solid #ccc;    
+}
+#signup input:focus{
+        outline: 0;
+        border-color: #aaa;        
+} 
+#signup button{
+    margin: 20px 0 0 0;
+    padding: 15px 8px;          
+    width: 100%;
+    border: 1px solid #2493FF;
+    color: #fff;
+    font: bold 1.4em arial, helvetica;
+    background-color: #2493ff;                                  
+} 
+#signup button:hover{
+    background-color: #7cbfff;
+        border-color: #7cbfff;
+}
+#signup button:active{
+    position: relative;
+    top: 3px;  
+}

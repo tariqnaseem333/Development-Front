@@ -1,0 +1,138 @@
+Page - 6: 
+Observe the main - src/index.js file from the previous demos.
+
+/**
+* index.js - root file of the application
+*/ 
+/* REACT related imports*/
+import React from 'react'
+import ReactDOM from 'react-dom'
+/* REDUX related imports*/
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import rootReducer from './reducers'
+/* Styling and App's React components related imports*/
+import './index.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import App from './components/App'
+/* Creating the REDUX STORE const store */
+const store = createStore(rootReducer)
+/* Loading the <App/> root view-component of the app
+* <Provided/> by the {store}
+* inside ReactDOM.render() */
+ReactDOM.render(
+  <Provider store={store}>
+	  <App/>
+  </Provider>,
+document.getElementById('root')
+)
+
+We were using:
+
+const store = Redux.createStore( <reducer-functions> );
+Creating a store with middlewares
+If you remember ,we have already exported applyMiddlewares(logger) from the src/middlewares/index.js. This is now imported into the main index.js file as middlewares.
+
+We can now pass the 'middlewares' in the function as an optional second argument into the createStore() function. 
+
+Hence the final code on the main index.js file (src/index.js) is as shown below:
+
+import rootReducer from './reducers';   // via combineReducers() - inside src/reducers/index.js
+import middlewares from './middlewares'; // via applyMiddleware() - inside src/middlewares/index.js
+const store = createStore(rootReducer, middlewares); // middleware as optional second argument
+As a general syntax:
+
+const store = Redux.createStore( <reducer-function>, <middleware-functions> )
+For example,
+
+const store = Redux.createStore(rootReducer, Redux.applyMiddleware(logger))
+ 
+
+The final src/index.js file is shown below:
+
+/**
+* index.js - root file of the application
+*/ 
+/* REACT related imports*/
+import React from 'react'
+import ReactDOM from 'react-dom'
+/* REDUX related imports*/
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import rootReducer from './reducers'
+import middlewares from './middlewares'
+/* Styling and App's React components related imports*/
+import './index.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import App from './components/App'
+/* Creating the REDUX STORE const store */
+const store = createStore(rootReducer, middlewares)
+/* Loading the <App/> root view-component of the app
+* <Provided/> by the {store}
+* inside ReactDOM.render() */
+ReactDOM.render(
+  <Provider store={store}>
+	  <App/>
+  </Provider>,
+document.getElementById('root')
+)
+
+
+Page - 7: 
+Step 1: Create and add the Logger middleware in - src/middlewares/logger.js.
+
+/**
+* Logger middleware - logs the ACTION and NEW STATE as a result of that action
+*/
+const logger = (store) => (next) => (action) => {
+  console.group(action.type)
+  console.log('Action: ', action)
+  const returnValue = next(action)
+  console.log('New state: ', store.getState())
+  console.groupEnd()
+  return returnValue
+}
+export default logger;
+ 
+
+Step 2: Configure the logger - Create a new file index.js inside src/middlewares/index.js.
+
+/**
+* applying all the middlewares - only logger is to be applied
+*/
+import logger from './logger'
+import { applyMiddleware } from 'redux'
+export default applyMiddleware(
+  logger,
+)
+
+ 
+
+Step 3: Modify the main index.js file of our Application as shown below:
+
+/**
+* index.js - root file of the application
+*/ 
+/* REACT related imports*/
+import React from 'react'
+import ReactDOM from 'react-dom'
+/* REDUX related imports*/
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import rootReducer from './reducers'
+import middlewares from './middlewares'
+/* Styling and App's React components related imports*/
+import './index.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import App from './components/App'
+/* Creating the REDUX STORE const store */
+const store = createStore(rootReducer, middlewares)
+/* Loading the <App/> root view-component of the app
+* <Provided/> by the {store}
+* inside ReactDOM.render() */
+ReactDOM.render(
+  <Provider store={store}>
+	  <App/>
+  </Provider>,
+document.getElementById('root')
+)

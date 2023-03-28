@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name">
+    </div>
+    <div>
+        <label for="gender">Specify your gender:</label>
+        <input type="radio" name="gender" id="male" value="male">Male
+        <input type="radio" name="gender" id="female" value="female">Female
+        <input type="radio" name="gender" id="others" value="others">Others
+    </div>
+    <div>
+        <label for="hobbies">What are your Hobbies</label>
+        <input type="checkbox" id="Writing" name="hobbies" value="Writing">Writing
+        <input type="checkbox" id="singing" name="hobbies" value="singing">Singing
+        <input type="checkbox" id="travelling" name="hobbies" value="travelling">Singing
+    </div>
+    <div>
+        <label for="superhero">Your Favourite Super hero</label>
+        <select id="superhero">
+            <option value="">Select</option>
+            <option value="goku">Goku</option>
+            <option value="Vegeta">Vegeta</option>
+            <option value="batman">Batman</option>
+            <option value="thor">Thor</option>
+            <option value="Wolverine">Wolverine</option>
+        </select>
+    </div>
+    </form>
+</body>
+</html>

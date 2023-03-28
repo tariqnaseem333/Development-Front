@@ -1,0 +1,39 @@
+Page - 2: 
+Step1: Create a file 'childComponent.js' and copy the below code in it.
+
+import React, { Component } from 'react';
+class Child extends Component {
+ 
+    render() {
+        return (
+           <h3 className="text-success">
+           I am a Child component rendered in a Parent component</h3> 
+        );
+    }
+}
+export default Child;
+Step 2: Create a file 'parentComponent.js' and copy the below code in it.
+
+import React, { Component } from 'react';
+import Child from './ChildComponent';
+class Parent extends Component {
+    render() {
+        return (
+            <div>
+                <h2 className="text-primary">I am a Parent Component</h2>
+                <Child/>
+            </div>
+           
+        );
+    }
+}
+export default Parent;
+ 
+
+Step 3: Copy the below code in index.js.
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Parent from './ParentComponent';
+ReactDOM.render(<Parent/>, document.getElementById('root'));

@@ -1,0 +1,22 @@
+<html>
+<head>
+<title>Special Input Types Demo</title>
+</head>
+<body>
+<h3><center>Customer Registration</center></h3><br><br>
+<center><form name="custForm"> 
+	 User Name	:     <br><br><!-- focus is here when page is loaded) -->
+     Password 	:    <br><br>	<!-- password should contain alphabets imposed using pattern attribute -->
+	 Email	:    <input type="" size="30" autocomplete="off" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/> <br><br>  <!-- autocomplete provides auto fill feature when set to 'on' -->
+	 Gender:<!-- radio buttons-->
+	 Age (Yrs)	:     <br><br>	<!-- required attribute : Age is necessary -->
+	 Address:   <br><br>
+ 	 Company website:    <br><br>
+	 Choose country:
+	 <br><br>
+	  Date of Journey:
+<br><br>
+</form>
+</center>
+</body>
+</html>

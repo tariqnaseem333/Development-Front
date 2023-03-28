@@ -1,0 +1,161 @@
+Page - 5: 
+import React from 'react';
+import { Text, View, StyleSheet, ScrollView, Image, TouchableHighlight } from 'react-native';
+import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
+import Overlay from 'react-native-modal-overlay';
+class College extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      modalVisible:false
+    }
+  }
+  showInfo = () => {
+    console.log("You have pressed ", this.props.name);
+    this.setState({ modalVisible: true })
+  }
+  onClose = () => this.setState({ modalVisible: false });
+  render() {
+    const collegeImages = {
+      "Oxford": require('./assets/college_images/oxford.jpg'),
+      "Cambridge": require('./assets/college_images/cambridge.jpg'),
+      "Harvard": require('./assets/college_images/harvard.jpg'),
+      "Stanford": require('./assets/college_images/stanford.jpg'),
+      "MIT": require('./assets/college_images/mit.jpg')
+    }
+    console.log("The props image is ", this.props.img)
+    return (
+      <View style={{ padding: 15 }}>
+        <TouchableHighlight onPress={this.showInfo} underlayColor="white">
+          <View>
+            <View style={{
+              shadowColor: 'black',
+              shadowOffset: {
+                width: 5,
+                height: 10
+              },
+              shadowOpacity: 0.7
+            }}>
+              <Image style={{
+                width: null,
+                height: 220,
+                resizeMode: 'contain',
+              }}
+                source={collegeImages[this.props.img]}
+              />
+            </View>
+            <View style={styles.button}>
+              <Text style={{ alignSelf: 'center', "fontSize": 20, "fontWeight": "bold" }}>{this.props.name}</Text>
+            </View>
+          </View>
+        </TouchableHighlight>
+        <Overlay visible={this.state.modalVisible} onClose={this.onClose} closeOnTouchOutside>
+          <Text>{this.props.description}</Text>
+        </Overlay>
+      </View >
+    )
+  }
+}
+class CollegeList extends React.Component {
+  constructor() {
+    super();
+  }
+  render() {
+    const collegeNames = [
+      ["Oxford", "The University of Oxford is a collegiate research university in Oxford, England. There is evidence of teaching as far back as 1096, making it the oldest university in the English-speaking world and the world's second-oldest university in continuous operation."],
+      ["Cambridge", "The University of Cambridge is a collegiate public research university in Cambridge, United Kingdom. Founded in 1209 and granted a Royal Charter by King Henry III in 1231, Cambridge is the second-oldest university in the English-speaking world and the world's fourth-oldest surviving university."],
+      ["Harvard", "Harvard University is a private Ivy League research university in Cambridge, Massachusetts, with about 6,700 undergraduate students and about 15,250 post graduate students."],
+      ["Stanford", "Leland Stanford Junior University is an American private research university in Stanford, California. Stanford is known for its academic strength, wealth, proximity to Silicon Valley, and ranking as one of the world's top universities. "],
+      ["MIT", "The Massachusetts Institute of Technology is a private research university in Cambridge, Massachusetts. Founded in 1861 in response to the increasing industrialization of the United States, MIT adopted a European polytechnic university model and stressed laboratory instruction in applied science and engineering."]];
+    console.log(collegeNames.map(img => console.log(img)));
+    return (
+      <ScrollView>
+        {collegeNames.map(img => <College name={img[0]} img={img[0]} description={img[1]} key={img} />)}
+      </ScrollView>
+    )
+  }
+}
+class HomeScreen extends React.Component {
+  constructor() {
+    super();
+  }
+  render() {
+    return (
+      <View style={styles.container}>
+        <View style={{
+          display: 'flex',          
+          alignItems: 'center',
+          justifyContent: 'center',
+          backgroundColor: "black", "height": 100
+        }}>
+          <Text style={{ color: "white",fontWeight:'bold',fontSize:25 }}>Universities</Text>
+          <Text style={{color:"grey"}}>World's top 5 places to study</Text>
+        </View>
+        <CollegeList />
+      </View>
+    );
+  }
+}
+const styles = StyleSheet.create({
+  container: {
+    display: 'flex',
+    flex: 1,
+    backgroundColor: 'white'
+  },
+});
+class SettingsScreen extends React.Component {
+  render() {
+    return (
+      <View>
+        <View style={{
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'center',
+          backgroundColor: "black", "height": 100
+        }}>
+          <Text style={{ color: "white", fontSize: 35 }}>Infosys</Text>
+        </View>
+        <View style={{ padding: 20 }}>
+          <Image style={{
+            width: null,
+            height: 220,
+            resizeMode: 'contain',
+          }}
+            source={require('./assets/college_images/infosys.jpg')} />
+          <Text>Given its infrastructure and size of operations, Infosys' GEC is the largest corporate education centre in the world. Set on a sprawling 337-acre campus, Infosys' educational and training hub has the capacity to train over 14,000 people at the same time. It is, in essence, an inception centre to thousands of Infosians who hail from all walks of life, diverse nationalities and cultures. </Text>
+        </View>
+      </View>
+    );
+  }
+}
+const getTabBarIcon = (navigation, focused, tintColor) => {
+  const { routeName } = navigation.state;
+  let IconComponent = FontAwesome;
+  let iconName;
+  if (routeName === 'Universities') {
+    iconName = `university`;
+  } else if (routeName === 'About Us') {
+    iconName = `th-list`;
+  }
+  return <IconComponent name={iconName} size={25} color={tintColor} />;
+};
+export default createAppContainer(
+  createBottomTabNavigator(
+    {
+      'Universities': { screen: HomeScreen },
+      'About Us': { screen: SettingsScreen },
+    },
+    {
+      defaultNavigationOptions: ({ navigation }) => ({
+        tabBarIcon: ({ focused, tintColor }) =>
+          getTabBarIcon(navigation, focused, tintColor),
+      }),
+      tabBarOptions: {
+        activeTintColor: 'black',
+        inactiveTintColor: 'gray',
+      },
+    }
+  )
+);

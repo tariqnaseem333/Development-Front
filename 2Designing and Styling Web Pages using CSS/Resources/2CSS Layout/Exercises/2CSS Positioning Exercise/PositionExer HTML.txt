@@ -1,0 +1,12 @@
+<html> 
+  <head> 
+    <style> 
+     /* write your logic here */ 
+    </style> 
+  </head> 
+  <body> 
+    <h1>This is your Heading</h1> 
+    <p>This is a paragraph</p> 
+    <p>This is one more paragraph</p> 
+  </body> 
+</html> 

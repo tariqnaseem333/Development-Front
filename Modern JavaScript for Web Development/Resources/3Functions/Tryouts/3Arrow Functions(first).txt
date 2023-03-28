@@ -1,0 +1,18 @@
+// Multi parameter, multi line code
+
+calculateCost = (ticketPrice, noOfPerson)=>{
+    noOfPerson = ticketPrice * noOfPerson;
+    return noOfPerson;
+}
+console.log(calculateCost(500, 2)); //1000
+
+
+//No parameter,single line code
+trip = () => "Lets go to trip."
+console.log(trip());    //// Lets go to trip.
+
+
+
+
+
+

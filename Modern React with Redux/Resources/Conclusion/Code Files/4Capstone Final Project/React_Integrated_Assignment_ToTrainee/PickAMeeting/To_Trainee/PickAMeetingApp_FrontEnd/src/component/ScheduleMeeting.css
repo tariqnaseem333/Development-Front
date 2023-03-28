@@ -1,0 +1,11 @@
+.text-danger{
+    font-weight: bold;
+    color:#f50808;
+    font-style: normal;
+    }
+    .text-success{
+        background-color: white;
+        color: rgb(41, 243, 41);
+        font-weight: bold;
+    }
+    

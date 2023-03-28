@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        Name:<input type="text" placeholder="Enter your name e.g. Bruce Wayne"><br>
+        Age:<input type="number" placeholder="Enter age above 18"><br>
+        Date of Birth:<input type="date"><br>
+        E-mail: <input type="email" placeholder="Enter you business Id"><br>
+        What is your favorite color: <input type="color"><br>
+        Rate your course: <input type="range" name="points" min="0" max="10"><br>
+    </form>
+</body>
+</html>

@@ -1,0 +1,12 @@
+Add the below code to a file named access_exer.html,
+
+<html> 
+    <body> 
+        <h1>Leh-Ladakh Bike Trip</h1> 
+        <h2>Dream of every Rider</h2> 
+        <img src = "pic33.PNG" alt = "manali-leh highway"> 
+    </body> 
+    <p>Ladakh, union territory of India is considered as Jewel of Himalayas. Leh is the capital city of Ladakh. 
+        It is like an oasis. Ladakh is a cold desert and consists of jaw dropping landscapes. 
+    </p> 
+</html> 

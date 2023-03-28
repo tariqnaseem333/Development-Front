@@ -1,0 +1,47 @@
+<html> 
+<head> 
+    <link rel="stylesheet" href="./flexEx.css"> 
+</head> 
+<body> 
+    <div> 
+        <div> 
+            <div> Trip the World </div> 
+            <div> 
+                <h3>Tour to Paris, the city of Lights</h3> 
+                <div> <img src="./Paris.jpg" alt=""> </div> <br> 
+                <div> <a href="#">Book Trip</a> </div> 
+            </div> 
+            <div > 
+                <h3>USA, the land of Dreams</h3> 
+                <div> <img src="./USA.jpg" alt=""></div> <br> 
+                <div> <a href="#">Book Trip</a> </div> 
+            </div> 
+        </div> 
+        <div> 
+            <div> 
+                <h5> Offer of the day</h5> 
+                <div > Trip to Maldives </div> 
+            </div> 
+            <div> 
+                <h4>We also offer trips for:</h4> 
+                <ul> 
+                    <li>Australia</li> 
+                    <li>South Island</li> 
+                    <li>Phuket</li> 
+                    <li>Maldives</li> 
+                    <li>Argentine Patagonia</li> 
+                </ul> 
+             </div> 
+            <div > 
+                <div >Cool Offers here</div> 
+            </div> 
+        </div> 
+    </div> 
+    <div> 
+        <div> 
+            Copyrights &copy; held by Trip World Ltd. <br> 
+            For further information, contact us at tripworld@wanderworld.com 
+        </div> 
+    </div> 
+</body> 
+</html> 

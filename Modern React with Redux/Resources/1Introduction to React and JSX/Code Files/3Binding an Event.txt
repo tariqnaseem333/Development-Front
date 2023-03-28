@@ -1,0 +1,206 @@
+Page - 1: 
+For this, let us modify the earlier src/index.js and add a button to it as follows:
+
+const button = <button onClick= {display} >MyClick</button>
+function display(){
+    console.log("Button clicked");
+}
+ReactDOM.render(button, document.getElementById('root'));
+
+
+Page - 2: 
+Step 1: Copy the below given code in index.js.​​​
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+function getSuccessMessage(){
+    console.log("You have Registered successfully!");
+    alert("You have Registered successfully!");
+}
+function display() {
+  return (
+    <div>
+      <label>Click here to register: </label>
+      <input type="button" value="Register" onClick={getSuccessMessage}/>
+    </div>
+  )
+}
+ReactDOM.render( display(), document.getElementById('root'));
+
+
+Page - 3: 
+Step 1: Copy the below given code in index.js.​​​
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+function getSuccessMessage(){
+    console.log("You have Registered successfully!");
+    alert("You have Registered successfully!");
+}
+function display() {
+  return (
+    <div>
+      <label>Click here to register: </label>
+      <input type="button" value="Register" onClick={getSuccessMessage}/>
+    </div>
+  )
+}
+ReactDOM.render( display(), document.getElementById('root'));
+
+Observe the below element in src/index.js.
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+const buttonEle = <button className="button1 button2" onClick= {display} >Click Me</button>
+function display(){
+    console.log("Button clicked");
+}
+ReactDOM.render(buttonEle, document.getElementById('root'));
+
+
+Page - 4: 
+Step 1: Copy the below given code in index.css.​​​
+
+.styling{
+  text-align: center;
+  color: darkred;
+}
+.button1{
+  color: white;
+  background-color: #006dcc
+}
+.button2{ 
+  border-radius: 5px; 
+  padding: 10px;
+}
+
+Step 2: Copy the below given code in index.js.
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+function display() {
+  return (
+    <div className="styling">
+      <span style={{ fontWeight: "bold", fontSize: "25px" }}>Welcome to React App</span><br />
+      <button className="button1 button2">Demo button</button>
+    </div>
+  )
+}
+ReactDOM.render(display(), document.getElementById('root'));
+
+Page - 5: 
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+const buttonElement = <button className="btn btn-primary" onClick= {display} >MyClick</button>
+function display(){
+    console.log("Button clicked");
+}
+ReactDOM.render(buttonElement , document.getElementById('root'));
+
+
+Page - 6: 
+Step 2: Copy the below given code in index.js.
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+function display(){
+  return(
+    <div className="text-center">
+      <h3 className="text-danger">Welcome to React App</h3>
+      <button className="btn btn-primary">Demo button</button>
+    </div>
+  )
+}
+ReactDOM.render( display(), document.getElementById('root'));
+
+Page - 7: 
+Step 2: Copy the below given code in index.js.
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+function display(){
+  return(
+    <div className="text-center">
+      <h3 className="text-danger">Welcome to React App</h3>
+      <button className="btn btn-primary">Demo button</button>
+    </div>
+  )
+}
+ReactDOM.render( display(), document.getElementById('root'));
+
+Page - 8 : 
+
+Step 1: Add the below CSS in index.css
+
+.card{
+  float: left;
+  margin-left: 10px;
+  border-color: black;
+  border: 1px solid; 
+  box-shadow: 10px 10px 10px grey;
+}
+ 
+
+Step 2: Add bootstrap in index.js as shown below:
+
+import "bootstrap/dist/css/bootstrap.css";
+ 
+
+Step 3: Modify the getEmployeeDetails() to return the updated element structure:
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import image1 from './img7.jpg';
+import image2 from './img10.jpg';
+import "bootstrap/dist/css/bootstrap.css";
+const emp1={
+  "empId":100,
+  "empName":"Jack",
+  "age":30,
+  "salary":50000
+};
+const emp2={
+  "empId":101,
+  "empName":"Jane",
+  "age":24,
+  "salary":40000
+};
+function getEmployeeDetails(){
+  const element=(
+    <div>
+    <h3 className="text-center text-primary">Employee Details</h3>
+    <div className="card" style={{"width":200}}>
+    <img className="card-img-top" src={image1} height="200" alt="Card image cap"/>
+    <div className="card-body">
+      <h5 className="card-title text-center">{emp1.empName}</h5>
+      <p className="card-text">
+      <span>Id: {emp1.empId}</span><br/>
+      <span>Age: {emp1.age}</span><br/>
+      <span>Salary: {emp1.salary}</span><br/>
+      </p>
+      <button type="button" className="btn btn-primary">Edit Details</button>
+    </div>
+    </div>
+    <div className="card" style={{"width":200}}>
+    <img className="card-img-top" src={image2} height="200" alt="Card image cap"/>
+    <div className="card-body">
+      <h5 className="card-title text-center">{emp2.empName}</h5>
+      <p className="card-text">
+      <span>Id: {emp2.empId}</span><br/>
+      <span>Age: {emp2.age}</span><br/>
+      <span>Salary: {emp2.salary}</span><br/>
+      </p>
+      <button type="button" className="btn btn-primary">Edit Details</button>
+    </div>
+    </div>
+  </div>
+  )
+  return element;
+}
+ReactDOM.render(getEmployeeDetails(), document.getElementById('root')); 

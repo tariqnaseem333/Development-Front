@@ -1,0 +1,11 @@
+<html>
+    <body>
+        <h4>Heading Tags</h4>
+    	<h1>heading in H1 tag</h1>
+    	<h2>heading in H2 tag</h2>
+    	<h3>heading in H3 tag</h3>
+    	<h4>heading in H4 tag</h4>
+    	<h5>heading in H5 tag</h5>
+    	<h6>heading in H6 tag</h6>
+	</body>
+</html>

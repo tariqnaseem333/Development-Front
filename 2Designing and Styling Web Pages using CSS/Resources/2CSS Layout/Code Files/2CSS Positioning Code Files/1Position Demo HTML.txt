@@ -1,0 +1,28 @@
+<html> 
+<head> 
+    <link rel="stylesheet" href="positionDemo.css"> 
+</head> 
+<body> 
+    <h1>CSS Position Types Demo</h1> 
+    <div id="parent-container"> 
+I am the ancestor of all the boxes inside me. Also, I am positioned <span>relatively.</span> What will get affected if I were <span>static</span>? 
+<div id="static"><span>static</span> positioning means that this element is <i>unpositioned</i>. It is rendered where the element is by default according to the HTML. It's not participating in all the positioning fun. 
+<div class="absolute"> 
+this <span>absolutely-positioned</span> element has <i>escaped</i> its <span>static</span> parent element.</br>It is now positioned relative to its nearest <span>relative</span> ancestor. 
+</div> 
+ </div> 
+ 
+<div id="relative"> 
+<span>relative</span> positioning means the element is positioned relative to itself. Without using the <span>top</span>, <span>right</span>, <span>bottom</span>, or <span>left</span> properties, it behaves like a <span>static</span> element. Try adding properties to move this element! 
+<div class="absolute"><span>absolute</span> means positioned relative to its nearest <i>positioned</i> parent positioned element. Uncomment the following HTML! 
+<!-- The absolutely-positioned element is taken out of the regular DOM flow. --> 
+           
+</div> 
+</div> 
+ 
+<div id="fixed"> 
+<span>fixed</span> positioning means that I am positioned relative to the browser window a.k.a the viewport Even if you scroll, I'll be right here. PS - extra info in the HTML!            
+</div> 
+</div> 
+</body> 
+</html> 

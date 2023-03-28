@@ -1,0 +1,43 @@
+<html> 
+<head> 
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+    <link rel="stylesheet" href="./varDun.css"> 
+    <title>Sign in</title> 
+</head> 
+<body> 
+    <h4>Select theme here</h4> 
+    <input type="radio" id="purple" name="changeColor"> <label for="purple">Purple</label>  
+    <input type="radio" id="green" name="changeColor"> <label for="green"> Green </label> 
+    <input type="radio" id="blue" name="changeColor"> <label for="blue">Blue </label> 
+    <section class="changeCol"> 
+    <div class="header">Variables in CSS</div> 
+    <div > 
+        <form  > 
+            <p  >Login to continue</p> 
+            <input type="text" placeholder="Username"> 
+            <input type="password" placeholder="Password"> 
+            <br><br> 
+            <a href="#">Login</a><br><br><br> 
+            <p  >Contact us : globalsolutions@gmail.com </p> 
+        </form> 
+    </div> 
+  </section> 
+</body> 
+</html> 
+
+/* Create different classes and style them accordingly to achieve the below shown output */ 
+      #purple:checked ~ .changeCol { 
+     /* Apply colors related to Purple theme */ 
+      } 
+      #green:checked ~ .changeCol { 
+        /* Apply colors related to Green theme */ 
+      } 
+      #blue:checked ~ .changeCol { 
+        /* Apply colors related to Blue theme */ 
+      } 
+      section { 
+        background-color : /*  */; 
+        font-family: 'Ubuntu', sans-serif;    
+        height: 80vh; 
+    } 

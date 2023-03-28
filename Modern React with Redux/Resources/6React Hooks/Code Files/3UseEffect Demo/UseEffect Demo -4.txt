@@ -1,0 +1,70 @@
+Demo steps
+
+1. Create employees.json file within the public folder and add the below employees data in JSON format
+
+[
+    { "empId": 1234, "name": "John", "designation":"SE" },
+    { "empId": 4567, "name": "Jack", "designation":"SSE"},
+    { "empId": 8910, "name": "Harry","designation":"TA"}
+]
+2. Install axios using the below command
+
+npm i axios
+3. Modify Employees.js file as shown below
+
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import "bootstrap/dist/css/bootstrap.min.css"
+const Employees = () => {
+             const [employees,setEmployees] = useState([
+             ])
+             const addEmployee = () => {
+                setEmployees([...employees, { empId:6789, name: 'Sam', designation:'TL' }]);
+              };
+              useEffect(() => {
+                axios.get('employees.json')
+                .then(result =>
+                   setEmployees(result.data)
+                )
+              },[]);
+         
+            return (<>
+                    <table style={{width:'60%'}} className='table'>
+                         <thead className="thead-light">
+                             <tr>
+                                  <th>EmpID</th>
+                                  <th>Name</th>
+                                  <th>Designation</th>
+                             </tr>
+                         </thead>
+                         <tbody>
+                              {employees.map(employee => {
+                                     return (<tr>
+                                             <td>{employee.empId}</td>
+                                             <td>{employee.name}</td>
+                                             <td>{employee.designation}</td>
+                                     </tr>)
+                             })
+                             }
+                         </tbody>
+                    </table>
+                    <button onClick={addEmployee}>Add an Employee</button>
+            </>)  
+}
+export default Employees;
+ 
+
+http get call is made to the employees.json file using axios
+
+4. Render the Employees component within index.js 
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import Employees from './Employees';
+import reportWebVitals from './reportWebVitals';
+ReactDOM.render(
+    <Employees/>,
+  document.getElementById('root')
+);
+​​​​​​​reportWebVitals();

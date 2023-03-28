@@ -1,0 +1,19 @@
+<html>
+<script type="text/javascript">
+    if(window.Worker){
+        var worker;
+        worker = new Worker("worker.js");
+        worker.onmessage = function(counter){
+            document.getElementById("countervalue").innerHTML = counter.data;
+        };
+    } else{
+        alert("Web worker is not supported in your browser");
+    }
+</script>
+</head>
+<body>
+    <div id="countervalue">
+        <!-- Messages received from web worker will be displayed here -->
+    </div>
+</body>
+</html>
